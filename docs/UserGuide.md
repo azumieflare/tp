@@ -11,10 +11,10 @@ TaskMasterPro is a **desktop app for managing team members and group tasks**, op
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
-## This section to be done after v1.2 is released
+
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `taskmasterpro.jar` from [here](https://github.com/se-edu/taskmasterpro-level3/releases).
+1. Download the latest `taskmasterpro.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-4/tp/releases/tag/v1.2).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TaskMasterPro.
 
@@ -25,13 +25,13 @@ TaskMasterPro is a **desktop app for managing team members and group tasks**, op
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-    * `list` : Lists all contacts.
+    * `list` : Lists all employees.
 
-    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds an employee named `John Doe` to TaskMasterPro.
 
-    * `delete 3` : Deletes the 3rd contact shown in the current list.
+    * `delete 3` : Deletes the employee with employee ID = 3.
 
-    * `clear` : Deletes all contacts.
+    * `clear` : Deletes all employee.
 
     * `exit` : Exits the app.
 
@@ -89,7 +89,7 @@ Examples:
 
 Shows a list of all employees in TaskMasterPro.
 
-Format: `listemployees`
+Format: `list`
 
 ### Deleting an employee: `delete`
 
@@ -101,7 +101,7 @@ Format: `delete EMPLOYEE_ID`
   Make sure that its valid!
 
 Examples:
-* `listemployees` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
+* `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
 
 ### Adding a task: `task`
 
@@ -135,6 +135,21 @@ Format: `deletetask TASK_ID`
 
 Examples:
 * `listtasks` followed by `deletetask 2` deletes the task with id 2 in TaskMasterPro.
+
+### Locating tasks by task names : `findtasks`
+
+Format: `findtasks KEYWORD [MORE_KEYWORDS]`
+
+* The search is case-insensitive. e.g. `report` will match `Report`.
+* The order of the keywords does not matter. e.g. `report meeting` will match `meeting report`.
+* Only full words will be matched. e.g. `report` will not match `reports`.
+* Tasks matching at least 1 keyword will be returned. e.g. `report meeting` will return tasks with
+`report` or `meeting` in their names.
+
+Examples:
+* `findtasks report` returns tasks with `report` in their names.
+
+Finds tasks whose names contain any of the given keyword.
 
 ### Assign a task to employee : `assigntask`
 
@@ -207,11 +222,12 @@ Format: `exit`
 Action | Format, Examples
 --------|------------------
 **Add employee** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/Ben Diddle t/friend e/bendiddle@example.com a/Newgate Prison p/21092109 t/criminal`
-**List employees** | `listemployees`
+**List employees** | `list`
 **Delete employee** | `delete EMPLOYEE_ID` <br> e.g., `delete 2`
 **Add task** | `task TASK_DESCRIPTION` <br> e.g., `task Weekly meeting`
 **List tasks** | `listtasks`
 **Delete task** | `deletetask TASK_ID`<br> e.g., `deletetask 3`
+**Find tasks** | `findtasks KEYWORD [MORE_KEYWORDS]`<br> e.g., `findtasks report`
 **Mark task** | `mark TASK_ID`<br> e.g., `mark 1` 
 **Unmark task** | `unmark TASK_ID`<br> e.g., `unmark 1` 
 **Assign task to an employee** | `assigntask t/TASK_ID  e/EMPLOYEE_ID` <br> e.g., `assigntask t/1 e/2`
