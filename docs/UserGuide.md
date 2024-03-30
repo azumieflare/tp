@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-TaskMasterPro is a **desktop app for managing team members and group tasks**, optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TaskMasterPro can get your contact management tasks done faster than traditional GUI apps.
+Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop app for managing team members and group tasks**, optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TaskMasterPro can get your contact management tasks done faster than traditional GUI apps. No matter whether you are a manager or a team lead who has to manage a team and keep track of their deliverables, TaskMasterPro can help you! Refer to the table of contents below and click on the section you want to skip to. Refer to the `Quick Start` section to get the program running and the `Features` section on the commands that you can use. If you run into any issues using the program try checking through the `FAQ` or `Known Issues` sections to see if the issues has already been brought up and there are any known solutions.
 
 * Table of Contents
   {:toc}
