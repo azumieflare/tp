@@ -149,6 +149,8 @@ public class EditCommand extends Command {
         /**
          * Copy constructor.
          * A defensive copy of {@code tags} is used internally.
+         *
+         * @param toCopy The variables to set for the current {@code Employee}.
          */
         public EditEmployeeDescriptor(EditEmployeeDescriptor toCopy) {
             setName(toCopy.name);
@@ -161,6 +163,8 @@ public class EditCommand extends Command {
 
         /**
          * Returns true if at least one field is edited.
+         *
+         * @return true if any field is edited.
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, tasks, tags);

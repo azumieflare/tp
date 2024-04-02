@@ -41,7 +41,9 @@ public class AddCommand extends Command {
     private final Employee toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Employee}
+     * Creates an AddCommand to add the specified {@code Employee}.
+     *
+     * @param employee An instance of {@code Employee}.
      */
     public AddCommand(Employee employee) {
         requireNonNull(employee);
