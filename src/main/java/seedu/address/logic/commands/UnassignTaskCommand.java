@@ -51,12 +51,12 @@ public class UnassignTaskCommand extends Command {
         boolean checkEmployeeID = false;
 
         for (Employee employee : employeeList) {
-            int id = employee.getEmployeeId().employeeId;
+            int id = employee.getEmployeeId().getId();
 
             if (id == employeeID) {
                 checkEmployeeID = true;
                 for (Task t : taskList) {
-                    if (t.getTaskId().taskId == taskID) {
+                    if (t.getTaskId().getId() == taskID) {
                         checkTaskID = true;
                         Employee updatedEmployee = employee.removeTask(t.getTaskId());
                         model.setEmployee(employee, updatedEmployee);

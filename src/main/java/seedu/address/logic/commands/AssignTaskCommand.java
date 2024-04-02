@@ -51,10 +51,10 @@ public class AssignTaskCommand extends Command {
         boolean checkEmployeeID = false;
 
         for (Task t : taskList) {
-            if (t.getTaskId().taskId == taskID) {
+            if (t.getTaskId().getId() == taskID) {
                 checkTaskID = true;
                 for (Employee e : employeeList) {
-                    if (e.getEmployeeId().employeeId == employeeID) {
+                    if (e.getEmployeeId().getId() == employeeID) {
                         checkEmployeeID = true;
                         Employee updatedEmployee = e.assignTask(t);
                         model.setEmployee(e, updatedEmployee);

@@ -85,7 +85,7 @@ public class AssignedEmployees {
         // Check if employeeID matches any of the numbers in employees
         for (String employeeId : employeeArray) {
             for (Employee employee : employeeList) {
-                if (Integer.parseInt(employeeId) == employee.getEmployeeId().employeeId) {
+                if (Integer.parseInt(employeeId) == employee.getEmployeeId().getId()) {
                     assignedEmployees.put(employee.getEmployeeId(), employee);
                 }
             }
@@ -101,7 +101,7 @@ public class AssignedEmployees {
      */
     public AssignedEmployees assignEmployee(Employee employee) throws CommandException {
         if (Objects.equals(employees, "")) {
-            employees = "" + employee.getEmployeeId().employeeId;
+            employees = "" + employee.getEmployeeId().getId();
             assignedEmployees.put(employee.getEmployeeId(), employee);
             return this;
         }
@@ -109,14 +109,14 @@ public class AssignedEmployees {
 
         // Check if employeeID matches any of the numbers in employees
         for (String employeeId : employeeArray) {
-            if (Integer.parseInt(employeeId) == employee.getEmployeeId().employeeId) {
+            if (Integer.parseInt(employeeId) == employee.getEmployeeId().getId()) {
                 throw new CommandException(
                         String.format(MESSAGE_DUPLICATE_TASKID, AssignTaskCommand.MESSAGE_USAGE));
             }
         }
 
         // Add the taskID to tasks
-        employees += " " + employee.getEmployeeId().employeeId;
+        employees += " " + employee.getEmployeeId().getId();
         employees.trim();
 
         if (assignedEmployees.get(employee.getEmployeeId()) != null) {
@@ -149,7 +149,7 @@ public class AssignedEmployees {
         boolean employeeFound = false;
 
         for (String employee : employeeArray) {
-            if (Integer.parseInt(employee) == employeeId.employeeId) {
+            if (Integer.parseInt(employee) == employeeId.getId()) {
                 employeeFound = true;
             } else {
                 updatedEmployees.append(employee).append(" ");

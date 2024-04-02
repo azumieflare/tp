@@ -15,6 +15,15 @@ public class EmployeeId {
         employeeId = id;
     }
 
+    /**
+     * To access the employeeId
+     *
+     * @return The employeeId
+     */
+    public int getId() {
+        return employeeId;
+    }
+
     @Override
     public String toString() {
         return "" + employeeId;
