@@ -51,7 +51,7 @@ class JsonSerializableTaskMasterPro {
     }
 
     /**
-     * Converts this address book into the model's {@code TaskMasterPro} object.
+     * Converts this TaskMasterPro into the model's {@code TaskMasterPro} object.
      *
      * @throws IllegalValueException if there were any data constraints violated.
      */

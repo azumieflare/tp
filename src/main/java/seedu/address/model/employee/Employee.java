@@ -14,7 +14,7 @@ import seedu.address.model.task.Task;
 import seedu.address.model.task.TaskId;
 
 /**
- * Represents an Employee in the address book.
+ * Represents an Employee in TaskMasterPro.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Employee {

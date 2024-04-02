@@ -122,7 +122,7 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Employee` objects (which are contained in a `UniqueEmployeeList` object) and all `Task` objects (which are contained in a `TaskList` object.
+* stores the TaskMasterPro data i.e., all `Employee` objects (which are contained in a `UniqueEmployeeList` object) and all `Task` objects (which are contained in a `TaskList` object.
 * stores the currently 'selected' `Employee` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Employee>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores `Task` objects in a similar manner as with `Employee` objects.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
@@ -142,7 +142,7 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
+* can save both TaskMasterPro data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `TaskMasterProStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
@@ -162,31 +162,31 @@ This section describes some noteworthy details on how certain features are imple
 
 The proposed undo/redo mechanism is facilitated by `VersionedTaskMasterPro`. It extends `TaskMasterPro` with an undo/redo history, stored internally as an `TaskMasterProStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
-* `VersionedTaskMasterPro#commit()` — Saves the current address book state in its history.
-* `VersionedTaskMasterPro#undo()` — Restores the previous address book state from its history.
-* `VersionedTaskMasterPro#redo()` — Restores a previously undone address book state from its history.
+* `VersionedTaskMasterPro#commit()` — Saves the current TaskMasterPro state in its history.
+* `VersionedTaskMasterPro#undo()` — Restores the previous TaskMasterPro state from its history.
+* `VersionedTaskMasterPro#redo()` — Restores a previously undone TaskMasterPro state from its history.
 
 These operations are exposed in the `Model` interface as `Model#commitTaskMasterPro()`, `Model#undoTaskMasterPro()` and `Model#redoTaskMasterPro()` respectively.
 
 Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `VersionedTaskMasterPro` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+Step 1. The user launches the application for the first time. The `VersionedTaskMasterPro` will be initialized with the initial TaskMasterPro state, and the `currentStatePointer` pointing to that single TaskMasterPro state.
 
 ![UndoRedoState0](images/UndoRedoState0.png)
 
-Step 2. The user executes `delete 5` command to delete the 5th employee in the address book. The `delete` command calls `Model#commitTaskMasterPro()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `TaskMasterProStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delete 5` command to delete the 5th employee in the TaskMasterPro. The `delete` command calls `Model#commitTaskMasterPro()`, causing the modified state of the TaskMasterPro after the `delete 5` command executes to be saved in the `TaskMasterProStateList`, and the `currentStatePointer` is shifted to the newly inserted TaskMasterPro state.
 
 ![UndoRedoState1](images/UndoRedoState1.png)
 
-Step 3. The user executes `add n/David …​` to add a new employee. The `add` command also calls `Model#commitTaskMasterPro()`, causing another modified address book state to be saved into the `TaskMasterProStateList`.
+Step 3. The user executes `add n/David …​` to add a new employee. The `add` command also calls `Model#commitTaskMasterPro()`, causing another modified TaskMasterPro state to be saved into the `TaskMasterProStateList`.
 
 ![UndoRedoState2](images/UndoRedoState2.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitTaskMasterPro()`, so the address book state will not be saved into the `TaskMasterProStateList`.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitTaskMasterPro()`, so the TaskMasterPro state will not be saved into the `TaskMasterProStateList`.
 
 </div>
 
-Step 4. The user now decides that adding the employee was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoTaskMasterPro()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+Step 4. The user now decides that adding the employee was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoTaskMasterPro()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous TaskMasterPro state, and restores the TaskMasterPro to that state.
 
 ![UndoRedoState3](images/UndoRedoState3.png)
 
@@ -207,17 +207,17 @@ Similarly, how an undo operation goes through the `Model` component is shown bel
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram-Model.png)
 
-The `redo` command does the opposite — it calls `Model#redoTaskMasterPro()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
+The `redo` command does the opposite — it calls `Model#redoTaskMasterPro()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the TaskMasterPro to that state.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `TaskMasterProStateList.size() - 1`, pointing to the latest address book state, then there are no undone TaskMasterPro states to restore. The `redo` command uses `Model#canRedoTaskMasterPro()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `TaskMasterProStateList.size() - 1`, pointing to the latest TaskMasterPro state, then there are no undone TaskMasterPro states to restore. The `redo` command uses `Model#canRedoTaskMasterPro()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
 </div>
 
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitTaskMasterPro()`, `Model#undoTaskMasterPro()` or `Model#redoTaskMasterPro()`. Thus, the `TaskMasterProStateList` remains unchanged.
+Step 5. The user then decides to execute the command `list`. Commands that do not modify the TaskMasterPro, such as `list`, will usually not call `Model#commitTaskMasterPro()`, `Model#undoTaskMasterPro()` or `Model#redoTaskMasterPro()`. Thus, the `TaskMasterProStateList` remains unchanged.
 
 ![UndoRedoState4](images/UndoRedoState4.png)
 
-Step 6. The user executes `clear`, which calls `Model#commitTaskMasterPro()`. Since the `currentStatePointer` is not pointing at the end of the `TaskMasterProStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+Step 6. The user executes `clear`, which calls `Model#commitTaskMasterPro()`. Since the `currentStatePointer` is not pointing at the end of the `TaskMasterProStateList`, all TaskMasterPro states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
 
 ![UndoRedoState5](images/UndoRedoState5.png)
 
@@ -229,7 +229,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 **Aspect: How undo & redo executes:**
 
-* **Alternative 1 (current choice):** Saves the entire address book.
+* **Alternative 1 (current choice):** Saves the entire TaskMasterPro.
   * Pros: Easy to implement.
   * Cons: May have performance issues in terms of memory usage.
 
@@ -460,7 +460,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *` | user                                       | save current data                            | keep track of all data even after exiting                         |
 | `* * *` | user                                       | load saved data                              | use the data that was saved previously                            |
 | `* * `  | user                                       | find tasks by name                           | quickly locate specific tasks that I remember                     |
-| `*`     | user with many employees in the address book | sort employees by name                       | locate a employee easily                                          |
+| `*`     | user with many employees in the TaskMasterPro | sort employees by name                       | locate a employee easily                                          |
 
 *{More to be added for v1.3}*
 

@@ -6,7 +6,7 @@ import seedu.address.model.employee.Employee;
 import seedu.address.model.employee.EmployeeId;
 
 /**
- * Represents a Task in the address book.
+ * Represents a Task in the TaskMasterPro.
  */
 public class Task {
     // Identity fields
