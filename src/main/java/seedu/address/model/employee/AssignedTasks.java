@@ -85,7 +85,7 @@ public class AssignedTasks {
         // Check if taskID matches any of the numbers in tasks
         for (String taskId : taskArray) {
             for (Task task : taskList) {
-                if (Integer.parseInt(taskId) == task.getTaskId().taskId) {
+                if (Integer.parseInt(taskId) == task.getTaskId().getId()) {
                     assignedTasks.put(task.getTaskId(), task);
                 }
             }
@@ -101,7 +101,7 @@ public class AssignedTasks {
      */
     public AssignedTasks assignTask(Task task) throws CommandException {
         if (Objects.equals(tasks, "")) {
-            tasks = "" + task.getTaskId().taskId;
+            tasks = "" + task.getTaskId().getId();
             assignedTasks.put(task.getTaskId(), task);
             return this;
         }
@@ -109,14 +109,14 @@ public class AssignedTasks {
 
         // Check if taskID matches any of the numbers in tasks
         for (String taskId : taskArray) {
-            if (Integer.parseInt(taskId) == task.getTaskId().taskId) {
+            if (Integer.parseInt(taskId) == task.getTaskId().getId()) {
                 throw new CommandException(
                         String.format(MESSAGE_DUPLICATE_TASKID, AssignTaskCommand.MESSAGE_USAGE));
             }
         }
 
         // Add the taskID to tasks
-        tasks += " " + task.getTaskId().taskId;
+        tasks += " " + task.getTaskId().getId();
         tasks.trim();
 
         if (assignedTasks.get(task.getTaskId()) != null) {
@@ -149,7 +149,7 @@ public class AssignedTasks {
         boolean taskFound = false;
 
         for (String task : taskArray) {
-            if (Integer.parseInt(task) == taskId.taskId) {
+            if (Integer.parseInt(task) == taskId.getId()) {
                 taskFound = true;
             } else {
                 updatedTasks.append(task).append(" ");

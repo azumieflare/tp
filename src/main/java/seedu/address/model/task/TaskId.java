@@ -15,6 +15,15 @@ public class TaskId {
         taskId = id;
     }
 
+    /**
+     * To access the taskId
+     *
+     * @return The taskId
+     */
+    public int getId() {
+        return taskId;
+    }
+
     @Override
     public String toString() {
         return "" + taskId;

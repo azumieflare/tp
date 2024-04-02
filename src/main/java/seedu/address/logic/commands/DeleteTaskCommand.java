@@ -37,7 +37,7 @@ public class DeleteTaskCommand extends Command {
         Task taskToDelete;
 
         for (Task t : lastShownList) {
-            if (t.getTaskId().taskId == targetIndex) {
+            if (t.getTaskId().getId() == targetIndex) {
                 taskToDelete = t;
                 taskToDelete.removeAssignments();
                 model.deleteTask(taskToDelete);
