@@ -38,7 +38,7 @@ public class AddTaskCommandParserTest {
             AddTaskCommand atc = parser.parse("");
         } catch (ParseException e) {
             assertEquals(e.getMessage(), "Invalid command format! \n"
-                    + "task: Adds a task to the address book. Parameters: DESCRIPTION \n"
+                    + "task: Adds a task to TaskMasterPro. Parameters: DESCRIPTION \n"
                     + "Example: task meeting");
         }
     }
