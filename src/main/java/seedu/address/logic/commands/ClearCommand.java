@@ -8,7 +8,7 @@ import seedu.address.model.employee.Employee;
 import seedu.address.model.task.Task;
 
 /**
- * Clears the address book.
+ * Clears TaskMasterPro.
  */
 public class ClearCommand extends Command {
 
