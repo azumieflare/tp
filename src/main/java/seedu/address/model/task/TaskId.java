@@ -4,7 +4,7 @@ package seedu.address.model.task;
  * Represents a Task's Id.
  */
 public class TaskId {
-    public final int taskId;
+    private final int taskId;
 
     /**
      * Constructs a {@code TaskId}.
@@ -16,9 +16,9 @@ public class TaskId {
     }
 
     /**
-     * To access the taskId
+     * Getter for taskId
      *
-     * @return The taskId
+     * @return taskId for this task
      */
     public int getId() {
         return taskId;

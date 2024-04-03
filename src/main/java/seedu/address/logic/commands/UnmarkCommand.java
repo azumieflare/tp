@@ -29,6 +29,7 @@ public class UnmarkCommand extends Command {
      * @param targetIndex The index of the task to unmark.
      */
     public UnmarkCommand(int targetIndex) {
+
         this.targetIndex = targetIndex;
     }
 
@@ -46,7 +47,7 @@ public class UnmarkCommand extends Command {
         Task taskToUnmark = null;
 
         for (Task t : taskList) {
-            if (t.getTaskId().getId() == targetIndex) {
+            if (t.getTaskId() == targetIndex) {
                 model.deleteTask(t);
                 taskToUnmark = t;
                 taskToUnmark.unmarkTask();

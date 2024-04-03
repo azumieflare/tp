@@ -47,32 +47,35 @@ public class UnassignTaskCommand extends Command {
         List<Task> taskList = model.getFilteredTaskList();
         List<Employee> employeeList = model.getFilteredEmployeeList();
 
-        boolean checkTaskID = false;
-        boolean checkEmployeeID = false;
+        Task assignTask = null;
+        Employee assignEmployee = null;
 
-        for (Employee employee : employeeList) {
-            int id = employee.getEmployeeId().getId();
-
-            if (id == employeeID) {
-                checkEmployeeID = true;
-                for (Task t : taskList) {
-                    if (t.getTaskId().getId() == taskID) {
-                        checkTaskID = true;
-                        Employee updatedEmployee = employee.removeTask(t.getTaskId());
-                        model.setEmployee(employee, updatedEmployee);
-
-                        Task updatedTask = t.removeEmployee(employee.getEmployeeId());
-                        model.setTask(t, updatedTask);
-                    }
-                }
+        for (Task t : taskList) {
+            if (t.getTaskId() == taskID) {
+                assignTask = t;
+                break;
+            }
+        }
+        for (Employee e : employeeList) {
+            if (e.getEmployeeId() == employeeID) {
+                assignEmployee = e;
+                break;
             }
         }
 
-        if (!checkTaskID) {
+        if (assignTask != null && assignEmployee != null) {
+            Employee updatedEmployee = assignEmployee.removeTask(assignTask.getTaskId());
+            model.setEmployee(assignEmployee, updatedEmployee);
+
+            Task updatedTask = assignTask.removeEmployee(assignEmployee.getEmployeeId());
+            model.setTask(assignTask, updatedTask);
+        }
+
+        if (assignTask == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASKID);
         }
 
-        if (!checkEmployeeID) {
+        if (assignEmployee == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
         }
 

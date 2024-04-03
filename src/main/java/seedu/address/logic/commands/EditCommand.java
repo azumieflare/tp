@@ -25,12 +25,13 @@ import seedu.address.model.employee.Address;
 import seedu.address.model.employee.AssignedTasks;
 import seedu.address.model.employee.Email;
 import seedu.address.model.employee.Employee;
+import seedu.address.model.employee.EmployeeId;
 import seedu.address.model.employee.Name;
 import seedu.address.model.employee.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
- * Edits the details of an existing employee in the address book.
+ * Edits the details of an existing employee in TaskMasterPro.
  */
 public class EditCommand extends Command {
 
@@ -51,7 +52,7 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_EMPLOYEE_SUCCESS = "Edited Employee: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_EMPLOYEE = "This employee already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_EMPLOYEE = "This employee already exists in TaskMasterPro.";
 
     private final Index index;
     private final EditEmployeeDescriptor editEmployeeDescriptor;
@@ -97,14 +98,14 @@ public class EditCommand extends Command {
                                                  EditEmployeeDescriptor editEmployeeDescriptor) {
         assert employeeToEdit != null;
 
-        Name updatedName = editEmployeeDescriptor.getName().orElse(employeeToEdit.getName());
-        Phone updatedPhone = editEmployeeDescriptor.getPhone().orElse(employeeToEdit.getPhone());
-        Email updatedEmail = editEmployeeDescriptor.getEmail().orElse(employeeToEdit.getEmail());
-        Address updatedAddress = editEmployeeDescriptor.getAddress().orElse(employeeToEdit.getAddress());
+        Name updatedName = editEmployeeDescriptor.getName().orElse(new Name(employeeToEdit.getName()));
+        Phone updatedPhone = editEmployeeDescriptor.getPhone().orElse(new Phone(employeeToEdit.getPhone()));
+        Email updatedEmail = editEmployeeDescriptor.getEmail().orElse(new Email(employeeToEdit.getEmail()));
+        Address updatedAddress = editEmployeeDescriptor.getAddress().orElse(new Address(employeeToEdit.getAddress()));
         AssignedTasks updatedTask = editEmployeeDescriptor.getTasks().orElse(employeeToEdit.getTasks());
         Set<Tag> updatedTags = editEmployeeDescriptor.getTags().orElse(employeeToEdit.getTags());
 
-        return new Employee(employeeToEdit.getEmployeeId(), updatedName, updatedPhone, updatedEmail,
+        return new Employee(new EmployeeId(employeeToEdit.getEmployeeId()), updatedName, updatedPhone, updatedEmail,
                 updatedAddress, updatedTask, updatedTags);
     }
 

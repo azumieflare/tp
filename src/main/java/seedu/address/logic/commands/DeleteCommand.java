@@ -11,7 +11,7 @@ import seedu.address.model.Model;
 import seedu.address.model.employee.Employee;
 
 /**
- * Deletes a employee identified using it's id from the address book.
+ * Deletes an employee identified using it's id from TaskMasterPro.
  */
 public class DeleteCommand extends Command {
 
@@ -38,7 +38,7 @@ public class DeleteCommand extends Command {
         Employee employeeToDelete;
 
         for (Employee e : lastShownList) {
-            if (e.getEmployeeId().getId() == targetIndex) {
+            if (e.getEmployeeId() == targetIndex) {
                 employeeToDelete = e;
                 employeeToDelete.removeAssignments();
                 model.deleteEmployee(employeeToDelete);
