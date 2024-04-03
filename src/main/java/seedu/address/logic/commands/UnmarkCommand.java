@@ -25,6 +25,7 @@ public class UnmarkCommand extends Command {
 
     /**
      * Constructs an UnmarkCommand to unmark the task at the specified index.
+     *
      * @param targetIndex The index of the task to unmark.
      */
     public UnmarkCommand(int targetIndex) {
@@ -34,6 +35,7 @@ public class UnmarkCommand extends Command {
 
     /**
      * Executes the UnmarkCommand to unmark a task.
+     *
      * @param model The model in which the command should be executed.
      * @return The result of the command execution.
      * @throws CommandException If there is an error executing the command.
@@ -62,6 +64,7 @@ public class UnmarkCommand extends Command {
 
     /**
      * Returns a string representation of this UnmarkCommand.
+     *
      * @return A string representation of this UnmarkCommand.
      */
     @Override
