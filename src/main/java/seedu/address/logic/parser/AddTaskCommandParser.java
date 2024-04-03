@@ -11,7 +11,7 @@ import seedu.address.model.task.TaskName;
 import seedu.address.model.task.TaskStatus;
 
 /**
- * Adds a task to the address book.
+ * Adds a task to TaskMasterPro.
  */
 public class AddTaskCommandParser implements Parser<AddTaskCommand> {
 

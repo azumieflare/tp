@@ -39,7 +39,7 @@ public interface Logic {
     ObservableList<Task> getFilteredTaskList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' TaskMasterPro file path.
      */
     Path getTaskMasterProFilePath();
 
