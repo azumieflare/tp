@@ -97,23 +97,24 @@ public class MainApp extends Application {
 
         if (isSampleData) {
             try {
-                AssignTaskCommand atc = new AssignTaskCommand(1,1);
+                AssignTaskCommand atc = new AssignTaskCommand(1, 1);
                 atc.execute(model);
-                atc = new AssignTaskCommand(1,2);
+                atc = new AssignTaskCommand(1, 2);
                 atc.execute(model);
-                atc = new AssignTaskCommand(1,3);
+                atc = new AssignTaskCommand(1, 3);
                 atc.execute(model);
-                atc = new AssignTaskCommand(2,3);
+                atc = new AssignTaskCommand(2, 3);
                 atc.execute(model);
-                atc = new AssignTaskCommand(2,4);
+                atc = new AssignTaskCommand(2, 4);
                 atc.execute(model);
-                atc = new AssignTaskCommand(2,5);
+                atc = new AssignTaskCommand(2, 5);
                 atc.execute(model);
-                atc = new AssignTaskCommand(3,5);
+                atc = new AssignTaskCommand(3, 5);
                 atc.execute(model);
-                atc = new AssignTaskCommand(3,6);
+                atc = new AssignTaskCommand(3, 6);
                 atc.execute(model);
             } catch (Exception e) {
+                logger.warning("Error with generating sample data.");
             }
         }
 
