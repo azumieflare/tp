@@ -5,12 +5,30 @@ title: User Guide
 
 Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop app for managing team members and group tasks**, optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TaskMasterPro can get your contact management tasks done faster than traditional GUI apps. No matter whether you are a manager or a team lead who has to manage a team and keep track of their deliverables, TaskMasterPro can help you! Refer to the table of contents below and click on the section you want to skip to. Refer to the `Quick Start` section to get the program running and the `Features` section on the commands that you can use. If you run into any issues using the program try checking through the `FAQ` or `Known Issues` sections to see if the issues has already been brought up and there are any known solutions.
 
-* Table of Contents
-  {:toc}
+# Table of Contents
+1. [Quick Start](#quick-start)
+2. [Features](#features)
+   3. [help](#viewing-help--help)
+   4. [add](#adding-an-employee-add)
+   5. [list](#listing-all-employees-list)
+   6. [delete](#deleting-an-employee-delete)
+   7. [task](#adding-a-task-task)
+   8. [listtasks](#listing-all-tasks--listtasks)
+   9. [deletetask](#deleting-a-task--deletetask-task_id)
+   10. [findtasks](#locating-tasks-by-task-names--findtasks)
+   11. [assigntask](#assign-a-task-to-employee--assigntask)
+   12. [unassigntask](#unassign-a-task-to-employee--unassigntask)
+   13. [mark](#mark-a-task--mark)
+   14. [unmark](#unmark-a-task--unmark)
+   15. [clear](#clearing-all-entries--clear)
+   16. [exit](#exiting-the-program--exit)
+17. [FAQ](#faq)
+18. [Known Issues](#known-issues)
+19. [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+## Quick Start
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
@@ -31,7 +49,7 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
 
     * `delete 3` : Deletes the employee with employee ID = 3.
 
-    * `clear` : Deletes all employee.
+    * `clear` : Deletes all stored data.
 
     * `exit` : Exits the app.
 
@@ -99,6 +117,8 @@ Format: `delete EMPLOYEE_ID`
 
 * The `EMPLOYEE_ID` refers to the index number shown in the displayed employee list.
   Make sure that its valid!
+
+![id position](images/indicateIdPosition.png)
 
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
@@ -222,13 +242,13 @@ Format: `exit`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Known issues
+## Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary
+## Command Summary
 
 Action | Format, Examples
 --------|------------------
