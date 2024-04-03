@@ -66,7 +66,6 @@ public class UnassignTaskCommand extends Command {
         if (assignTask != null && assignEmployee != null) {
             Employee updatedEmployee = assignEmployee.removeTask(assignTask.getTaskId());
             model.setEmployee(assignEmployee, updatedEmployee);
-
             Task updatedTask = assignTask.removeEmployee(assignEmployee.getEmployeeId());
             model.setTask(assignTask, updatedTask);
         }

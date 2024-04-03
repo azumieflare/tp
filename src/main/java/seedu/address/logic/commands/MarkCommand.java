@@ -29,7 +29,6 @@ public class MarkCommand extends Command {
      * @param targetIndex The index of the task to mark.
      */
     public MarkCommand(int targetIndex) {
-
         this.targetIndex = targetIndex;
     }
 

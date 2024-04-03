@@ -29,7 +29,6 @@ public class UnmarkCommand extends Command {
      * @param targetIndex The index of the task to unmark.
      */
     public UnmarkCommand(int targetIndex) {
-
         this.targetIndex = targetIndex;
     }
 
