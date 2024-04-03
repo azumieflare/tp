@@ -175,7 +175,7 @@ Finds tasks whose names contain any of the given keyword.
 
 Assigns a task object to employee.
 
-Format: `assigntask t/TASK_ID  e/EMPLOYEE_ID`
+Format: `assigntask TASK_ID EMPLOYEE_ID`
 
 * Assigns a task object with id `TASK_ID` to an employee with id `EMPLOYEE_ID`.
 
@@ -186,7 +186,7 @@ Examples:
 
 Unassigns a task object to employee.
 
-Format: `unassigntask t/TASK_ID  e/EMPLOYEE_ID`
+Format: `unassigntask TASK_ID EMPLOYEE_ID`
 
 * Unassigns a task object with id `TASK_ID` from an employee with id `EMPLOYEE_ID`.
 
@@ -261,7 +261,7 @@ Action | Format, Examples
 **Find tasks** | `findtasks KEYWORD [MORE_KEYWORDS]`<br> e.g., `findtasks report`
 **Mark task** | `mark TASK_ID`<br> e.g., `mark 1` 
 **Unmark task** | `unmark TASK_ID`<br> e.g., `unmark 1` 
-**Assign task to an employee** | `assigntask t/TASK_ID  e/EMPLOYEE_ID` <br> e.g., `assigntask t/1 e/2`
-**Unassign employee from a task** | `unassigntask t/ TASK_ID e/EMPLOYEE_ID` <br> e.g., `unassigntask t/1 e/1`
+**Assign task to an employee** | `assigntask TASK_ID EMPLOYEE_ID` <br> e.g., `assigntask 1 2`
+**Unassign employee from a task** | `unassigntask TASK_ID EMPLOYEE_ID` <br> e.g., `unassigntask 1 1`
 **Clear** | `clear`
 **Help** | `help`
