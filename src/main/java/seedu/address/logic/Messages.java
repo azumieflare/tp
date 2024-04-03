@@ -64,7 +64,7 @@ public class Messages {
         final StringBuilder builder = new StringBuilder();
         builder.append(task.getName())
                 .append("; TaskID: ")
-                .append(task.getTaskId().taskId)
+                .append(task.getTaskId().getId())
                 .append("; TaskStatus: ")
                 .append(task.getTaskStatus()); // Add more append if got more fields to show
         return builder.toString();
