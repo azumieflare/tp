@@ -17,7 +17,7 @@ import seedu.address.model.task.TaskStatus;
 
 public class DeleteTaskCommandTest {
     @Test
-    public void test() {
+    public void execute_deleteTaskCommand_success() {
         Task validTask = new Task(new TaskName("Test"), new TaskId(123), new TaskStatus(false),
                 new AssignedEmployees(""));
         Model model = new ModelManager();

@@ -14,14 +14,12 @@ import seedu.address.logic.commands.AssignTaskCommand;
 import seedu.address.logic.commands.UnassignTaskCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.task.Task;
-import seedu.address.model.task.TaskId;
 
 /**
  * Represents an Employee's AssignedTasks in TaskMasterPro.
  * Guarantees: immutable; is valid as declared in {@link #isValidTask(String)}
  */
 public class AssignedTasks {
-
     public static final String MESSAGE_CONSTRAINTS =
             "TASK_IDS should only contain numeric characters and spaces, and it should not be blank";
 
@@ -29,11 +27,11 @@ public class AssignedTasks {
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "^[\\p{Alnum} ]*$";
+    private static final String VALIDATION_REGEX = "^[\\p{Alnum} ]*$";
 
     private String tasks;
 
-    private Hashtable<TaskId, Task> assignedTasks;
+    private Hashtable<Integer, Task> assignedTasks;
 
     /**
      * Constructs a {@code AssignedTasks}.
@@ -61,7 +59,7 @@ public class AssignedTasks {
      *
      * @return A hashtable containing the tasks assigned to the employee.
      */
-    public Hashtable<TaskId, Task> getAssignedTasks() {
+    public Hashtable<Integer, Task> getAssignedTasks() {
         return assignedTasks;
     }
 
@@ -85,7 +83,7 @@ public class AssignedTasks {
         // Check if taskID matches any of the numbers in tasks
         for (String taskId : taskArray) {
             for (Task task : taskList) {
-                if (Integer.parseInt(taskId) == task.getTaskId().taskId) {
+                if (Integer.parseInt(taskId) == task.getTaskId()) {
                     assignedTasks.put(task.getTaskId(), task);
                 }
             }
@@ -101,7 +99,7 @@ public class AssignedTasks {
      */
     public AssignedTasks assignTask(Task task) throws CommandException {
         if (Objects.equals(tasks, "")) {
-            tasks = "" + task.getTaskId().taskId;
+            tasks = "" + task.getTaskId();
             assignedTasks.put(task.getTaskId(), task);
             return this;
         }
@@ -109,14 +107,14 @@ public class AssignedTasks {
 
         // Check if taskID matches any of the numbers in tasks
         for (String taskId : taskArray) {
-            if (Integer.parseInt(taskId) == task.getTaskId().taskId) {
+            if (Integer.parseInt(taskId) == task.getTaskId()) {
                 throw new CommandException(
                         String.format(MESSAGE_DUPLICATE_TASKID, AssignTaskCommand.MESSAGE_USAGE));
             }
         }
 
         // Add the taskID to tasks
-        tasks += " " + task.getTaskId().taskId;
+        tasks += " " + task.getTaskId();
         tasks.trim();
 
         if (assignedTasks.get(task.getTaskId()) != null) {
@@ -133,11 +131,11 @@ public class AssignedTasks {
      * If the specified task ID is not found in the assigned tasks list,
      * or if the assigned tasks list is empty, a CommandException is thrown.
      *
-     * @param taskId The task to be removed.
+     * @param taskId The id of the task to be removed.
      * @return The updated AssignedTasks object.
      * @throws CommandException If the task ID is not present in the assigned tasks.
      */
-    public AssignedTasks unassignTask(TaskId taskId) throws CommandException {
+    public AssignedTasks unassignTask(int taskId) throws CommandException {
         if (Objects.equals(tasks, "")) {
             throw new CommandException(
                     String.format(MESSAGE_NONEXISTENT_TASKS, UnassignTaskCommand.MESSAGE_USAGE));
@@ -149,7 +147,7 @@ public class AssignedTasks {
         boolean taskFound = false;
 
         for (String task : taskArray) {
-            if (Integer.parseInt(task) == taskId.taskId) {
+            if (Integer.parseInt(task) == taskId) {
                 taskFound = true;
             } else {
                 updatedTasks.append(task).append(" ");
@@ -187,12 +185,12 @@ public class AssignedTasks {
     @Override
     public String toString() {
         String taskString = "";
-        for (TaskId taskId : assignedTasks.keySet()) {
+        for (int taskId : assignedTasks.keySet()) {
             // Retrieve the Task using the key
             Task task = assignedTasks.get(taskId);
 
             // Append the Task details to the string
-            taskString += (task.getTaskId().toString() + ". " + task.getName() + "\n");
+            taskString += (task.getTaskId() + ". " + task.getName() + "\n");
         }
         return taskString;
     }

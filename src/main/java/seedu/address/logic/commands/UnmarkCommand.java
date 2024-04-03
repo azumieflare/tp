@@ -45,7 +45,7 @@ public class UnmarkCommand extends Command {
         Task taskToUnmark = null;
 
         for (Task t : taskList) {
-            if (t.getTaskId().taskId == targetIndex) {
+            if (t.getTaskId() == targetIndex) {
                 model.deleteTask(t);
                 taskToUnmark = t;
                 taskToUnmark.unmarkTask();

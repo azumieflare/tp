@@ -47,32 +47,38 @@ public class AssignTaskCommand extends Command {
         List<Task> taskList = model.getFilteredTaskList();
         List<Employee> employeeList = model.getFilteredEmployeeList();
 
-        boolean checkTaskID = false;
-        boolean checkEmployeeID = false;
+        Task assignTask = null;
+        Employee assignEmployee = null;
 
         for (Task t : taskList) {
-            if (t.getTaskId().taskId == taskID) {
-                checkTaskID = true;
-                for (Employee e : employeeList) {
-                    if (e.getEmployeeId().employeeId == employeeID) {
-                        checkEmployeeID = true;
-                        Employee updatedEmployee = e.assignTask(t);
-                        model.setEmployee(e, updatedEmployee);
-
-                        Task updatedTask = t.assignEmployee(e);
-                        model.setTask(t, updatedTask);
-                    }
-                }
+            if (t.getTaskId() == taskID) {
+                assignTask = t;
+                break;
+            }
+        }
+        for (Employee e : employeeList) {
+            if (e.getEmployeeId() == employeeID) {
+                assignEmployee = e;
+                break;
             }
         }
 
-        if (!checkTaskID) {
+        if (assignTask != null && assignEmployee != null) {
+            Employee updatedEmployee = assignEmployee.assignTask(assignTask);
+            model.setEmployee(assignEmployee, updatedEmployee);
+
+            Task updatedTask = assignTask.assignEmployee(assignEmployee);
+            model.setTask(assignTask, updatedTask);
+        }
+
+        if (assignTask == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASKID);
         }
 
-        if (!checkEmployeeID) {
+        if (assignEmployee == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
         }
+
         return new CommandResult(MESSAGE_ASSIGN_TASK_SUCCESS);
     }
 }
