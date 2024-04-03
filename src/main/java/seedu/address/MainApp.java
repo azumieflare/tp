@@ -68,9 +68,9 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code storage}'s address book and {@code userPrefs}. <br>
-     * The data from the sample address book will be used instead if {@code storage}'s address book is not found,
-     * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
+     * Returns a {@code ModelManager} with the data from {@code storage}'s TaskMasterPro and {@code userPrefs}. <br>
+     * The data from the sample TaskMasterPro will be used instead if {@code storage}'s TaskMasterPro is not found,
+     * or an empty TaskMasterPro will be used instead if errors occur when reading {@code storage}'s TaskMasterPro.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
         logger.info("Using data file : " + storage.getTaskMasterProFilePath());
@@ -101,6 +101,9 @@ public class MainApp extends Application {
      * Returns a {@code Config} using the file at {@code configFilePath}. <br>
      * The default file path {@code Config#DEFAULT_CONFIG_FILE} will be used instead
      * if {@code configFilePath} is null.
+     *
+     * @param configFilePath The path to the config file.
+     * @return The {@code Config} using the file at {@code configFilePath}.
      */
     protected Config initConfig(Path configFilePath) {
         Config initializedConfig;
@@ -140,6 +143,9 @@ public class MainApp extends Application {
      * Returns a {@code UserPrefs} using the file at {@code storage}'s user prefs file path,
      * or a new {@code UserPrefs} with default configuration if errors occur when
      * reading from the file.
+     *
+     * @param storage The file with user preference.
+     * @return The representation of user preference.
      */
     protected UserPrefs initPrefs(UserPrefsStorage storage) {
         Path prefsFilePath = storage.getUserPrefsFilePath();
