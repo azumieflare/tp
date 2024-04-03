@@ -457,6 +457,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ![Interactions Inside the Logic Component for the `assigntask 1 6` Command](images/AssignTaskSequenceDiagram.png)
 ![Interactions for updating existing employee fields for the `assign 1 6` command](images/AssignTaskRefSequenceDiagram.png)
+<br>
 Note that if none of the taskId == 1, an invalid taskId exception will be thrown.
 If none of the employeeId == 6, an invalid employeeId exception will be thrown.
 
@@ -485,7 +486,7 @@ If none of the employeeId == 6, an invalid employeeId exception will be thrown.
 
 ![Interactions Inside the Logic Component for the `mark 1` Command](images/MarkDiagram.png)
 ![Interactions for mark for the `mark 1` command](images/MarkRefDiagram.png)
-
+<br>
 Note that if none of the taskId == 1, an invalid taskId exception will be thrown.
 
 
@@ -539,7 +540,6 @@ Given below are instructions to test the app manually.
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
-
 </div>
 
 ### Launch and shutdown
