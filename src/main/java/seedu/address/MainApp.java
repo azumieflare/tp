@@ -19,7 +19,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyTaskMasterPro;
 import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.TaskMasterPro;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
 import seedu.address.storage.JsonTaskMasterProStorage;
@@ -86,8 +85,8 @@ public class MainApp extends Application {
             initialData = taskMasterProOptional.orElseGet(SampleDataUtil::getSampleTaskMasterPro);
         } catch (DataLoadingException e) {
             logger.warning("Data file at " + storage.getTaskMasterProFilePath() + " could not be loaded."
-                    + " Will be starting with an empty TaskMasterPro.");
-            initialData = new TaskMasterPro();
+                    + " Will be starting with a default TaskMasterPro.");
+            initialData = SampleDataUtil.getSampleTaskMasterPro();
         }
 
         return new ModelManager(initialData, userPrefs);
