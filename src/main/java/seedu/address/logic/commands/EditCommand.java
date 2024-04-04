@@ -38,9 +38,9 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the employee identified "
-            + "by the index number used in the displayed employee list. "
+            + "by the given EmployeeId. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: EmployeeId (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
@@ -74,11 +74,19 @@ public class EditCommand extends Command {
         requireNonNull(model);
         List<Employee> lastShownList = model.getFilteredEmployeeList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
+        Employee employeeToEdit = null;
+
+        for (Employee e : lastShownList) {
+            if (e.getEmployeeId() == index.getOneBased()) {
+                employeeToEdit = e;
+                break;
+            }
+        }
+
+        if (employeeToEdit == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
         }
 
-        Employee employeeToEdit = lastShownList.get(index.getZeroBased());
         Employee editedEmployee = createEditedEmployee(employeeToEdit, editEmployeeDescriptor);
 
         if (!employeeToEdit.isSameEmployee(editedEmployee) && model.hasEmployee(editedEmployee)) {
