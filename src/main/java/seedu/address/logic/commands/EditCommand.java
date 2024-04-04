@@ -74,11 +74,19 @@ public class EditCommand extends Command {
         requireNonNull(model);
         List<Employee> lastShownList = model.getFilteredEmployeeList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
+        Employee employeeToEdit = null;
+
+        for (Employee e : lastShownList) {
+            if (e.getEmployeeId() == index.getOneBased()) {
+                employeeToEdit = e;
+                break;
+            }
+        }
+
+        if (employeeToEdit == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
         }
 
-        Employee employeeToEdit = lastShownList.get(index.getZeroBased());
         Employee editedEmployee = createEditedEmployee(employeeToEdit, editEmployeeDescriptor);
 
         if (!employeeToEdit.isSameEmployee(editedEmployee) && model.hasEmployee(editedEmployee)) {
