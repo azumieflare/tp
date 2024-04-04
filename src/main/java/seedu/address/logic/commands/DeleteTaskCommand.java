@@ -41,7 +41,8 @@ public class DeleteTaskCommand extends Command {
                 taskToDelete = t;
                 taskToDelete.removeAssignments();
                 model.deleteTask(taskToDelete);
-                return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, Messages.format(taskToDelete)));
+                return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, Messages.format(taskToDelete)),
+                        false, false, true, false);
             }
         }
 
