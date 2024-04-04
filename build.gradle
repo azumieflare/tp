@@ -73,5 +73,4 @@ defaultTasks 'clean', 'test'
 
 run {
     enableAssertions = true
-    jvmArgs = ['-ea'] // Enable assertions
 }
