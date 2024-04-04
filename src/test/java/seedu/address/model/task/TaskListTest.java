@@ -14,7 +14,7 @@ public class TaskListTest {
             new AssignedEmployees(""));
 
     @Test
-    public void contains_task() {
+    public void execute_addRemoveTaskList_success() {
         taskList.add(task);
         assertTrue(taskList.contains(task));
         taskList.remove(task);
@@ -22,12 +22,12 @@ public class TaskListTest {
     }
 
     @Test
-    public void toStringMethod() {
+    public void execute_taskListToString_success() {
         assertEquals(taskList.asUnmodifiableObservableList().toString(), taskList.toString());
     }
 
     @Test
-    public void exceptionTest() {
+    public void execute_removeFromEmptyTaskList_exception() {
         try {
             taskList.remove(task);
         } catch (TaskNotFoundException e) {

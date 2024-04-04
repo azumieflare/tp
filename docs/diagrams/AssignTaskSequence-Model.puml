@@ -19,7 +19,9 @@ activate Model
 deactivate Model
 
 [-> Employee : assignEmployee(e1)
+activate Employee
 [<-- Employee : e2:Employee
+deactivate Employee
 
 [-> Model : setEmployee(e1, e2)
 activate Model
@@ -27,7 +29,9 @@ activate Model
 deactivate Model
 
 [-> Task : assignTask(t1)
+activate Task
 [<-- Task : t2:Task
+deactivate Task
 
 [-> Model : setTask(t1, t2)
 activate Model

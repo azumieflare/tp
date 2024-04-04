@@ -15,7 +15,7 @@ import seedu.address.model.task.TaskStatus;
 
 public class AddTaskCommandTest {
     @Test
-    public void test() {
+    public void execute_addTaskCommand_success() {
         Task validTask = new Task(new TaskName("Test"), new TaskId(123), new TaskStatus(false),
                 new AssignedEmployees(""));
         Model model = new ModelManager();
@@ -27,8 +27,8 @@ public class AddTaskCommandTest {
         } catch (CommandException e) {
             return;
         }
-        assertEquals(123, model.getFilteredTaskList().get(0).getTaskId().taskId);
-        assertEquals("Test", model.getFilteredTaskList().get(0).getName().taskName);
+        assertEquals(123, model.getFilteredTaskList().get(0).getTaskId());
+        assertEquals("Test", model.getFilteredTaskList().get(0).getName());
         assertEquals(atc.toString(), atc2.toString());
     }
 }

@@ -14,14 +14,14 @@ import seedu.address.model.task.TaskStatus;
 
 public class JsonAdaptedTaskTest {
     @Test
-    public void test() {
-        JsonAdaptedTask task = new JsonAdaptedTask(null, 123, false, "");
+    public void execute_noTaskInput_exception() {
+        JsonAdaptedTask task = new JsonAdaptedTask(null, 123, "In Progress", "");
         assertThrows(IllegalValueException.class, String.format(JsonAdaptedTask.MISSING_FIELD_MESSAGE_FORMAT,
                 TaskName.class.getSimpleName()), task::toModelType);
     }
 
     @Test
-    public void test2() {
+    public void execute_errorTaskInput_exception() {
         JsonAdaptedTask task = new JsonAdaptedTask(new Task(new TaskName(null), new TaskId(123),
                 new TaskStatus(false), new AssignedEmployees("")));
         assertThrows(IllegalValueException.class, String.format(JsonAdaptedTask.MISSING_FIELD_MESSAGE_FORMAT,
@@ -29,7 +29,7 @@ public class JsonAdaptedTaskTest {
     }
 
     @Test
-    public void test3() throws IllegalValueException {
+    public void execute_taskCreationEqual_success() throws IllegalValueException {
         JsonAdaptedTask task = new JsonAdaptedTask(new Task(new TaskName("Test"), new TaskId(123),
                 new TaskStatus(false), new AssignedEmployees("")));
         Task.setUniversalTaskId(123);

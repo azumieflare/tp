@@ -38,12 +38,12 @@ public class DeleteCommand extends Command {
         Employee employeeToDelete;
 
         for (Employee e : lastShownList) {
-            if (e.getEmployeeId().getId() == targetIndex) {
+            if (e.getEmployeeId() == targetIndex) {
                 employeeToDelete = e;
                 employeeToDelete.removeAssignments();
                 model.deleteEmployee(employeeToDelete);
                 return new CommandResult(String.format(MESSAGE_DELETE_EMPLOYEE_SUCCESS,
-                        Messages.format(employeeToDelete)));
+                    Messages.format(employeeToDelete)), false, true, false, false);
             }
         }
 

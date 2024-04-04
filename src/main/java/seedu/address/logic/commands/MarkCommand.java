@@ -46,7 +46,7 @@ public class MarkCommand extends Command {
         Task taskToMark = null;
 
         for (Task t : taskList) {
-            if (t.getTaskId().getId() == targetIndex) {
+            if (t.getTaskId() == targetIndex) {
                 model.deleteTask(t);
                 taskToMark = t;
                 taskToMark.markTask();
