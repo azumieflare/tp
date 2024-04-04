@@ -11,20 +11,24 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
    3. [help](#viewing-help--help)
    4. [add](#adding-an-employee-add)
    5. [list](#listing-all-employees-list)
-   6. [delete](#deleting-an-employee-delete)
-   7. [task](#adding-a-task-task)
-   8. [listtasks](#listing-all-tasks--listtasks)
-   9. [deletetask](#deleting-a-task--deletetask-task_id)
-   10. [findtasks](#locating-tasks-by-task-names--findtasks)
-   11. [assigntask](#assign-a-task-to-employee--assigntask)
-   12. [unassigntask](#unassign-a-task-to-employee--unassigntask)
-   13. [mark](#mark-a-task--mark)
-   14. [unmark](#unmark-a-task--unmark)
-   15. [clear](#clearing-all-entries--clear)
-   16. [exit](#exiting-the-program--exit)
-17. [FAQ](#faq)
-18. [Known Issues](#known-issues)
-19. [Command Summary](#command-summary)
+   6. [edit](#editing-an-employee-edit)
+   7. [delete](#deleting-an-employee-delete)
+   8. [find](#locating-employees-by-employee-names--find)
+   9. [task](#adding-a-task-task)
+   10. [listtasks](#listing-all-tasks--listtasks)
+   11. [deletetask](#deleting-a-task--deletetask-task_id)
+   12. [findtasks](#locating-tasks-by-task-names--findtasks)
+   13. [assigntask](#assign-a-task-to-employee--assigntask)
+   14. [unassigntask](#unassign-a-task-to-employee--unassigntask)
+   15. [mark](#mark-a-task--mark)
+   16. [unmark](#unmark-a-task--unmark)
+   17. [Saving the data](#saving-the-data)
+   18. [Editing the data file](#editing-the-data-file)
+   19. [clear](#clearing-all-entries--clear)
+   20. [exit](#exiting-the-program--exit)
+21. [FAQ](#faq)
+22. [Known Issues](#known-issues)
+23. [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -102,14 +106,28 @@ Make sure that your parameter's formats are valid!
 </div>
 
 Examples:
-* `add n/AikenDueet p/12311231 e/aiken@example.com a/Dueet street, block 123, #01-01`
-* `add n/Ben Diddle t/friend e/bendiddle@example.com a/Newgate Prison p/21092109 t/criminal`
+* `add n/AikenDueet p/82311231 e/aiken@example.com a/Dueet street, block 123, #01-01`
+* `add n/Ben Diddle t/friend e/bendiddle@example.com a/Newgate Prison p/81092109 t/criminal`
 
 ### Listing all employees: `list`
 
 Shows a list of all employees in TaskMasterPro.
 
 Format: `list`
+
+### Editing an employee: `edit`
+
+Edits an employee's details in TaskMasterPro.
+
+Format: `edit EMPLOYEE_ID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+You can specify `t/` multiple times to add more tags
+</div>
+
+Examples:
+* `edit 1 n/AikenDueet p/82311231 e/aiken@example.com`
+* `edit 2 a/Newgate Prison p/81092109 t/criminal`
 
 ### Deleting an employee: `delete`
 
@@ -124,6 +142,21 @@ Format: `delete EMPLOYEE_ID`
 
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
+
+### Locating employees by employee names : `find`
+
+Finds employees whose names contain any of the given keyword.
+
+Format: `find KEYWORD [MORE_KEYWORDS]`
+
+* The search is case-insensitive. e.g. `alex` will match `Alex`.
+* The order of the keywords does not matter. e.g. `Yeoh Alex` will match `Alex Yeoh`.
+* Only full words will be matched. e.g. `Ale` will not match `Alex`.
+* Employees matching at least 1 keyword will be returned. e.g. `Alex Yu` will return employees with
+`Alex` or `Yu` in their names.
+
+Examples:
+* `find alex` returns employees with `alex` in their names.
 
 ### Adding a task: `task`
 
@@ -160,6 +193,8 @@ Examples:
 
 ### Locating tasks by task names : `findtasks`
 
+Finds tasks whose names contain any of the given keyword.
+
 Format: `findtasks KEYWORD [MORE_KEYWORDS]`
 
 * The search is case-insensitive. e.g. `report` will match `Report`.
@@ -170,8 +205,6 @@ Format: `findtasks KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `findtasks report` returns tasks with `report` in their names.
-
-Finds tasks whose names contain any of the given keyword.
 
 ### Assign a task to employee : `assigntask`
 
@@ -222,6 +255,20 @@ Examples:
 * `unmark 1`
 * `unmark 2`
 
+### Saving the data
+
+TaskMasterPro data are saved in the hard disk automatically after any command that changes the data.
+
+There is no need to save manually.
+
+### Editing the data file
+
+TaskMasterPro data are saved automatically as a JSON file [JAR file location]/data/taskmasterpro.json . Advanced users are welcome to update data directly by editing that data file.
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+If your changes to the data file makes its format invalid, TaskMasterPro will discard all data and start with the original sample data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
+Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+</div>
 
 ### Clearing all entries : `clear`
 
@@ -240,7 +287,7 @@ Format: `exit`
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TaskMasterPro home folder.
+**A**: Install the app in the other computer and overwrite the data file it creates with the file that contains the data of your previous TaskMasterPro home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -254,8 +301,11 @@ Format: `exit`
 
 Action | Format, Examples
 --------|------------------
-**Add employee** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/Ben Diddle t/friend e/bendiddle@example.com a/Newgate Prison p/21092109 t/criminal`
+**Help** | `help`
+**Add employee** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/Ben Diddle t/friend e/bendiddle@example.com a/Newgate Prison p/81092109 t/criminal`
+**Edit employee** | `edit EMPLOYEE_ID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` <br> e.g., `edit 2 a/Newgate Prison p/81092109 t/criminal`
 **List employees** | `list`
+**Find employees** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find alex`
 **Delete employee** | `delete EMPLOYEE_ID` <br> e.g., `delete 2`
 **Add task** | `task TASK_DESCRIPTION` <br> e.g., `task Weekly meeting`
 **List tasks** | `listtasks`
@@ -266,4 +316,4 @@ Action | Format, Examples
 **Assign task to an employee** | `assigntask TASK_ID EMPLOYEE_ID` <br> e.g., `assigntask 1 2`
 **Unassign employee from a task** | `unassigntask TASK_ID EMPLOYEE_ID` <br> e.g., `unassigntask 1 1`
 **Clear** | `clear`
-**Help** | `help`
+**Exit** | `exit`
