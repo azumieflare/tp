@@ -48,6 +48,8 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
     * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds an employee named `John Doe` to TaskMasterPro.
 
     * `delete 3` : Deletes the employee with employee ID = 3.
+ 
+    * `task meeting` : Creates a task with description called meeting.
 
     * `clear` : Deletes all stored data.
 
@@ -184,7 +186,7 @@ Examples:
 
 ### Unassign a task to employee : `unassigntask`
 
-Unassigns a task object to employee.
+Unassigns a task object from an employee.
 
 Format: `unassigntask TASK_ID EMPLOYEE_ID`
 

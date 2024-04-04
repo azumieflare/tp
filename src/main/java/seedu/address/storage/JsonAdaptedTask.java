@@ -19,7 +19,7 @@ public class JsonAdaptedTask {
     private final String taskName;
     private final int taskId;
 
-    private boolean taskStatus;
+    private String taskStatus;
 
     private String employees;
 
@@ -28,7 +28,7 @@ public class JsonAdaptedTask {
      */
     @JsonCreator
     public JsonAdaptedTask(@JsonProperty("taskName") String taskName, @JsonProperty("taskId") int taskId,
-                           @JsonProperty("taskStatus") boolean taskStatus,
+                           @JsonProperty("taskStatus") String taskStatus,
                            @JsonProperty("employees") String employees) {
         this.taskName = taskName;
         this.taskId = taskId;
@@ -41,9 +41,9 @@ public class JsonAdaptedTask {
      * Converts a given {@code Task} into this class for Jackson use.
      */
     public JsonAdaptedTask(Task source) {
-        taskName = source.getName().taskName;
-        taskId = source.getTaskId().getId();
-        taskStatus = source.getTaskStatus().getStatus();
+        taskName = source.getName();
+        taskId = source.getTaskId();
+        taskStatus = source.getTaskStatus().toString();
         employees = source.getEmployees().getEmployees();
     }
 
