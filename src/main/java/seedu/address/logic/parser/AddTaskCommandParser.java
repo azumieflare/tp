@@ -11,13 +11,14 @@ import seedu.address.model.task.TaskName;
 import seedu.address.model.task.TaskStatus;
 
 /**
- * Adds a task to the address book.
+ * Adds a task to TaskMasterPro.
  */
 public class AddTaskCommandParser implements Parser<AddTaskCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddTaskCommand
      * and returns an AddTaskCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddTaskCommand parse(String args) throws ParseException {

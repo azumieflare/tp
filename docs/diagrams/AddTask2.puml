@@ -2,7 +2,7 @@
 'https://plantuml.com/object-diagram
 
 Package Model as ModelPackage <<Rectangle>>{
-object "<u>meeting:Task" as TaskMeeting
+object "<u>Meeting:Task" as TaskMeeting
 TaskMeeting : TaskId = 1
 object "<u>Project:Task" as TaskProject
 TaskProject : TaskId = 2

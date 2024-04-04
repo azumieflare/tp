@@ -189,10 +189,6 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    public EmployeeListPanel getEmployeeListPanel() {
-        return (EmployeeListPanel) panel;
-    }
-
     /**
      * Executes the command and returns the result.
      *

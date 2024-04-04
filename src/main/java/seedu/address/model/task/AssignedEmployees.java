@@ -14,7 +14,6 @@ import seedu.address.logic.commands.AssignTaskCommand;
 import seedu.address.logic.commands.UnassignTaskCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.employee.Employee;
-import seedu.address.model.employee.EmployeeId;
 
 /**
  * Represents a Task's AssignedEmployees in TaskMasterPro.
@@ -22,18 +21,18 @@ import seedu.address.model.employee.EmployeeId;
  */
 public class AssignedEmployees {
 
-    public static final String MESSAGE_CONSTRAINTS =
+    private static final String MESSAGE_CONSTRAINTS =
             "TASK_IDS should only contain numeric characters and spaces, and it should not be blank";
 
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "^[\\p{Alnum} ]*$";
+    private static final String VALIDATION_REGEX = "^[\\p{Alnum} ]*$";
 
     private String employees;
 
-    private Hashtable<EmployeeId, Employee> assignedEmployees;
+    private Hashtable<Integer, Employee> assignedEmployees;
 
     /**
      * Constructs a {@code AssignedEmployees}.
@@ -61,7 +60,7 @@ public class AssignedEmployees {
      *
      * @return A hashtable containing the employees assigned to the task.
      */
-    public Hashtable<EmployeeId, Employee> getAssignedEmployees() {
+    public Hashtable<Integer, Employee> getAssignedEmployees() {
         return assignedEmployees;
     }
 
@@ -85,7 +84,7 @@ public class AssignedEmployees {
         // Check if employeeID matches any of the numbers in employees
         for (String employeeId : employeeArray) {
             for (Employee employee : employeeList) {
-                if (Integer.parseInt(employeeId) == employee.getEmployeeId().employeeId) {
+                if (Integer.parseInt(employeeId) == employee.getEmployeeId()) {
                     assignedEmployees.put(employee.getEmployeeId(), employee);
                 }
             }
@@ -101,7 +100,7 @@ public class AssignedEmployees {
      */
     public AssignedEmployees assignEmployee(Employee employee) throws CommandException {
         if (Objects.equals(employees, "")) {
-            employees = "" + employee.getEmployeeId().employeeId;
+            employees = "" + employee.getEmployeeId();
             assignedEmployees.put(employee.getEmployeeId(), employee);
             return this;
         }
@@ -109,14 +108,14 @@ public class AssignedEmployees {
 
         // Check if employeeID matches any of the numbers in employees
         for (String employeeId : employeeArray) {
-            if (Integer.parseInt(employeeId) == employee.getEmployeeId().employeeId) {
+            if (Integer.parseInt(employeeId) == employee.getEmployeeId()) {
                 throw new CommandException(
                         String.format(MESSAGE_DUPLICATE_TASKID, AssignTaskCommand.MESSAGE_USAGE));
             }
         }
 
         // Add the taskID to tasks
-        employees += " " + employee.getEmployeeId().employeeId;
+        employees += " " + employee.getEmployeeId();
         employees.trim();
 
         if (assignedEmployees.get(employee.getEmployeeId()) != null) {
@@ -137,7 +136,7 @@ public class AssignedEmployees {
      * @return The updated AssignedEmployees object.
      * @throws CommandException If the employee ID is not present in the assigned employees.
      */
-    public AssignedEmployees unassignEmployee(EmployeeId employeeId) throws CommandException {
+    public AssignedEmployees unassignEmployee(int employeeId) throws CommandException {
         if (Objects.equals(employees, "")) {
             throw new CommandException(
                     String.format(MESSAGE_NONEXISTENT_EMPLOYEES, UnassignTaskCommand.MESSAGE_USAGE));
@@ -149,7 +148,7 @@ public class AssignedEmployees {
         boolean employeeFound = false;
 
         for (String employee : employeeArray) {
-            if (Integer.parseInt(employee) == employeeId.employeeId) {
+            if (Integer.parseInt(employee) == employeeId) {
                 employeeFound = true;
             } else {
                 updatedEmployees.append(employee).append(" ");
@@ -188,12 +187,12 @@ public class AssignedEmployees {
     @Override
     public String toString() {
         String employeeString = "";
-        for (EmployeeId employeeId : assignedEmployees.keySet()) {
+        for (int employeeId : assignedEmployees.keySet()) {
             // Retrieve the Employee using the key
             Employee employee = assignedEmployees.get(employeeId);
 
             // Append the Employee details to the string
-            employeeString += (employee.getEmployeeId().toString() + ". " + employee.getName() + "\n");
+            employeeString += (employee.getEmployeeId() + ". " + employee.getName() + "\n");
         }
         return employeeString;
     }
