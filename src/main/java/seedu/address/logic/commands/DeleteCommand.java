@@ -43,7 +43,7 @@ public class DeleteCommand extends Command {
                 employeeToDelete.removeAssignments();
                 model.deleteEmployee(employeeToDelete);
                 return new CommandResult(String.format(MESSAGE_DELETE_EMPLOYEE_SUCCESS,
-                        Messages.format(employeeToDelete)));
+                    Messages.format(employeeToDelete)), false, true, false, false);
             }
         }
 
