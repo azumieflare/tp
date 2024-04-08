@@ -44,6 +44,8 @@ public class AssignTaskCommand extends Command {
      */
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        model.updateFilteredTaskList(Model.PREDICATE_SHOW_ALL_TASKS);
+        model.updateFilteredEmployeeList(Model.PREDICATE_SHOW_ALL_EMPLOYEES);
         List<Task> taskList = model.getFilteredTaskList();
         List<Employee> employeeList = model.getFilteredEmployeeList();
 

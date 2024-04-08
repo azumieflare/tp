@@ -7,7 +7,7 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.commons.util.ToStringBuilder;
 
 /**
- * Tests that a {@code Task}'s {@code Description} matches any of the keywords given.
+ * Predicate to test if a {@code Task}'s {@code Description} contains any of the keywords given.
  */
 public class TaskNameContainsKeywordsPredicate implements Predicate<Task> {
     private final List<String> keywords;
@@ -15,7 +15,9 @@ public class TaskNameContainsKeywordsPredicate implements Predicate<Task> {
     public TaskNameContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
-
+    /**
+     * Tests that a {@code Task}'s {@code Description} matches any of the keywords given.
+     */
     @Override
     public boolean test(Task task) {
         return keywords.stream()
