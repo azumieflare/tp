@@ -25,7 +25,12 @@ public class FindTasksCommand extends Command {
     public FindTasksCommand(TaskNameContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
-
+    /**
+     * Executes the command to find tasks based on the predicate.
+     *
+     * @param model the current model
+     * @return the command result indicating the success of the operation
+     */
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
@@ -49,7 +54,6 @@ public class FindTasksCommand extends Command {
         FindTasksCommand otherFindCommand = (FindTasksCommand) other;
         return predicate.equals(otherFindCommand.predicate);
     }
-
     @Override
     public String toString() {
         return new ToStringBuilder(this)
