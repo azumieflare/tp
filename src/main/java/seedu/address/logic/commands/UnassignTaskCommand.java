@@ -41,6 +41,7 @@ public class UnassignTaskCommand extends Command {
      * @return the employee if found
      * @throws CommandException if employee does not exist
      */
+    //@@author BryanL2303
     public Employee findEmployee(Model model) throws CommandException {
         List<Employee> employeeList = model.getFilteredEmployeeList();
         for (Employee e : employeeList) {
@@ -57,6 +58,7 @@ public class UnassignTaskCommand extends Command {
      * @return the task if found
      * @throws CommandException if task does not exist
      */
+    //@@author BryanL2303
     public Task findTask(Model model) throws CommandException {
         List<Task> taskList = model.getFilteredTaskList();
         for (Task t : taskList) {
