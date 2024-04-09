@@ -103,6 +103,28 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Make sure that your parameter's formats are valid!
+
+NAME : Only alphanumeric characters and spaces
+
+PHONE_NUMBER : Should be an 8 digit number beginning with either 6, 8 or 9
+
+EMAIL : Should be of the format local-part@domain and adhere to the following constraints,
+
+1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. 
+2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods.
+   
+   The domain name must:
+   * end with a domain label at least 2 characters long
+   * have each domain label start and end with alphanumeric characters
+</div>
+<br/>
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+
+As of now you cannot create multiple employees with the same name.
+
+There are also certain problems that could occur if you are not careful with some parameters!
+
+NAME : This is case-sensitive, you could accidentally add multiple of the same employee with different capitalizations.
 </div>
 
 Examples:
