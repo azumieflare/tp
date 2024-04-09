@@ -8,12 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EMPLOYEES;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
@@ -29,6 +24,7 @@ import seedu.address.model.employee.EmployeeId;
 import seedu.address.model.employee.Name;
 import seedu.address.model.employee.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.task.Task;
 
 /**
  * Edits the details of an existing employee in TaskMasterPro.
@@ -95,7 +91,23 @@ public class EditCommand extends Command {
 
         model.setEmployee(employeeToEdit, editedEmployee);
         model.updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EMPLOYEES);
-        return new CommandResult(String.format(MESSAGE_EDIT_EMPLOYEE_SUCCESS, Messages.format(editedEmployee)));
+
+        //This section will update all the assigned tasks so that each task will refer to the new employee
+        model.updateFilteredTaskList(Model.PREDICATE_SHOW_ALL_TASKS);
+        List<Task> taskList = model.getFilteredTaskList();
+        Hashtable<Integer, Task> assignedTasks = editedEmployee.getTasks().getAssignedTasks();
+        for (Integer key : assignedTasks.keySet()) {
+            for (Task t : taskList) {
+                if (t.getTaskId() == key) {
+                    t.getEmployees().unassignEmployee(editedEmployee.getEmployeeId());
+                    t.getEmployees().assignEmployee(editedEmployee);
+                    break;
+                }
+            }
+        }
+
+        return new CommandResult(String.format(MESSAGE_EDIT_EMPLOYEE_SUCCESS, Messages.format(editedEmployee)),
+                false, true, false, false);
     }
 
     /**
