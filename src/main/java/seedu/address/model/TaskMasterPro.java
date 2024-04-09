@@ -118,8 +118,8 @@ public class TaskMasterPro implements ReadOnlyTaskMasterPro {
     }
 
     /**
-     * Adds an Employee to TaskMasterPro.
-     * The Employee must not already exist in TaskMasterPro.
+     * Adds an Task to TaskMasterPro.
+     * The Task must not already exist in TaskMasterPro.
      */
     public void addTask(Task task) {
         tasks.add(task);

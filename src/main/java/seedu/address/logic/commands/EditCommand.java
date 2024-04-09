@@ -71,20 +71,27 @@ public class EditCommand extends Command {
         this.editEmployeeDescriptor = new EditEmployeeDescriptor(editEmployeeDescriptor);
     }
 
-    @Override
-    public CommandResult execute(Model model) throws CommandException {
-        requireNonNull(model);
+    /**
+     * Method to find if an employee exists based on employee ID.
+     *
+     * @param model the current model
+     * @return the employee if found, else null
+     */
+    public Employee findEmployee(Model model) {
         List<Employee> lastShownList = model.getFilteredEmployeeList();
-
-        Employee employeeToEdit = null;
 
         for (Employee e : lastShownList) {
             if (e.getEmployeeId() == index.getOneBased()) {
-                employeeToEdit = e;
-                break;
+                return e;
             }
         }
+        return null;
+    }
+    @Override
+    public CommandResult execute(Model model) throws CommandException {
+        requireNonNull(model);
 
+        Employee employeeToEdit = findEmployee(model);
         if (employeeToEdit == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
         }
