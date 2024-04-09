@@ -39,6 +39,7 @@ public class UnmarkCommand extends Command {
      * @return The result of the command execution.
      * @throws CommandException If there is an error executing the command.
      */
+    //@@author johnyoozhengxian
     @Override
     public CommandResult execute(Model model) throws CommandException {
         List<Task> taskList = model.getFilteredTaskList();
@@ -47,10 +48,10 @@ public class UnmarkCommand extends Command {
 
         for (Task t : taskList) {
             if (t.getTaskId() == targetIndex) {
-                model.deleteTask(t);
                 taskToUnmark = t;
                 taskToUnmark.unmarkTask();
-                model.addTask(taskToUnmark);
+                model.setTask(t, taskToUnmark);
+                break;
             }
         }
 
