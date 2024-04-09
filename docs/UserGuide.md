@@ -36,7 +36,7 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `taskmasterpro.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-4/tp/releases/tag/v1.2).
+1. Download the latest `taskmasterpro.jar` from [here](https://github.com/AY2324S2-CS2103T-T15-4/tp/releases/tag/v1.3.1).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TaskMasterPro.
 
