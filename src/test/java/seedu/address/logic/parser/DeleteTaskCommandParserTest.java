@@ -18,7 +18,7 @@ import seedu.address.model.task.TaskStatus;
 
 public class DeleteTaskCommandParserTest {
     @Test
-    public void test() throws ParseException, CommandException {
+    public void execute_deleteTask_success() throws ParseException, CommandException {
         DeleteTaskCommandParser parser = new DeleteTaskCommandParser();
         Model m = new ModelManager();
         m.addTask(new Task(new TaskName("Test"), new TaskId(123), new TaskStatus(false), new AssignedEmployees("")));
@@ -31,7 +31,7 @@ public class DeleteTaskCommandParserTest {
     }
 
     @Test
-    public void test2() throws ParseException {
+    public void execute_errorCommand_exception() {
         DeleteTaskCommandParser parser = new DeleteTaskCommandParser();
         try {
             parser.parse("");
