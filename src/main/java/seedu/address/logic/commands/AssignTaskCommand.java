@@ -34,7 +34,40 @@ public class AssignTaskCommand extends Command {
         this.taskID = taskID;
         this.employeeID = employeeID;
     }
-
+    /**
+     * Method to find if an employee exists based on employee ID.
+     *
+     * @param model the current model
+     * @return the employee if found
+     * @throws CommandException if employee does not exist
+     */
+    //@@author BryanL2303
+    public Employee findEmployee(Model model) throws CommandException {
+        List<Employee> employeeList = model.getFilteredEmployeeList();
+        for (Employee e : employeeList) {
+            if (e.getEmployeeId() == employeeID) {
+                return e;
+            }
+        }
+        throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
+    }
+    /**
+     * Method to find if an employee exists based on task ID.
+     *
+     * @param model the current model
+     * @return the task if found
+     * @throws CommandException if task does not exist
+     */
+    //@@author BryanL2303
+    public Task findTask(Model model) throws CommandException {
+        List<Task> taskList = model.getFilteredTaskList();
+        for (Task t : taskList) {
+            if (t.getTaskId() == taskID) {
+                return t;
+            }
+        }
+        throw new CommandException(Messages.MESSAGE_INVALID_TASKID);
+    }
     /**
      * Executes the AssignTaskCommand to assign a task to an employee.
      *
@@ -42,45 +75,19 @@ public class AssignTaskCommand extends Command {
      * @return The result of the command execution.
      * @throws CommandException If there is an error executing the command.
      */
+    //@@author BryanL2303
     @Override
     public CommandResult execute(Model model) throws CommandException {
         model.updateFilteredTaskList(Model.PREDICATE_SHOW_ALL_TASKS);
         model.updateFilteredEmployeeList(Model.PREDICATE_SHOW_ALL_EMPLOYEES);
-        List<Task> taskList = model.getFilteredTaskList();
-        List<Employee> employeeList = model.getFilteredEmployeeList();
-
-        Task assignTask = null;
-        Employee assignEmployee = null;
-
-        for (Task t : taskList) {
-            if (t.getTaskId() == taskID) {
-                assignTask = t;
-                break;
-            }
-        }
-        for (Employee e : employeeList) {
-            if (e.getEmployeeId() == employeeID) {
-                assignEmployee = e;
-                break;
-            }
-        }
-
+        Task assignTask = findTask(model);
+        Employee assignEmployee = findEmployee(model);
         if (assignTask != null && assignEmployee != null) {
             Employee updatedEmployee = assignEmployee.assignTask(assignTask);
             model.setEmployee(assignEmployee, updatedEmployee);
-
             Task updatedTask = assignTask.assignEmployee(assignEmployee);
             model.setTask(assignTask, updatedTask);
         }
-
-        if (assignTask == null) {
-            throw new CommandException(Messages.MESSAGE_INVALID_TASKID);
-        }
-
-        if (assignEmployee == null) {
-            throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
-        }
-
         return new CommandResult(MESSAGE_ASSIGN_TASK_SUCCESS);
     }
 }
