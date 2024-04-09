@@ -167,6 +167,10 @@ Format: `task TASK_DESCRIPTION`
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The description for the task is required and can be any length with spaces in between
 </div>
+<br/>
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+Avoid naming 2 tasks with the same name as TaskMasterPro will not differentiate them! It could make things complicated!
+</div>
 
 Examples:
 * `task Weekly meeting`
