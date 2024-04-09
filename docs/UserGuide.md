@@ -85,6 +85,10 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+
+* Any command that requires `EMPLOYEE_ID` or `TASK_ID` as a parameter does not refer to the nominal number in the list but rather specifically the id as indicated below:
+![id position](images/indicateIdPosition.png)
+![id position_2](images/indicateIdPosition2.png)
 </div>
 
 ### Viewing help : `help`
@@ -163,8 +167,6 @@ Format: `delete EMPLOYEE_ID`
 
 * The `EMPLOYEE_ID` refers to the index number shown in the displayed employee list.
   Make sure that its valid!
-
-![id position](images/indicateIdPosition.png)
 
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
