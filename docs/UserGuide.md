@@ -124,7 +124,7 @@ As of now you cannot create multiple employees with the same name.
 
 There are also certain problems that could occur if you are not careful with some parameters!
 
-NAME : This is case-sensitive, you could accidentally add multiple of the same employee with different capitalizations.
+NAME : This is case-sensitive and whitespace sensitive, you could accidentally add multiple of the same employee with different capitalizations.
 </div>
 
 Examples:
