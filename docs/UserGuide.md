@@ -22,10 +22,10 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
    14. [unassigntask](#unassign-a-task-to-employee--unassigntask)
    15. [mark](#mark-a-task--mark)
    16. [unmark](#unmark-a-task--unmark)
-   17. [Saving the data](#saving-the-data)
-   18. [Editing the data file](#editing-the-data-file)
-   19. [clear](#clearing-all-entries--clear)
-   20. [exit](#exiting-the-program--exit)
+   17. [clear](#clearing-all-entries--clear)
+   18. [exit](#exiting-the-program--exit)
+   19. [Saving the data](#saving-the-data)
+   20. [Editing the data file](#editing-the-data-file)
 21. [FAQ](#faq)
 22. [Known Issues](#known-issues)
 23. [Command Summary](#command-summary)
@@ -255,6 +255,18 @@ Examples:
 * `unmark 1`
 * `unmark 2`
 
+### Clearing all entries : `clear`
+
+Clears all entries from TaskMasterPro.
+
+Format: `clear`
+
+### Exiting the program : `exit`
+
+Exits the program.
+
+Format: `exit`
+
 ### Saving the data
 
 TaskMasterPro data are saved in the hard disk automatically after any command that changes the data.
@@ -270,17 +282,7 @@ If your changes to the data file makes its format invalid, TaskMasterPro will di
 Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
-### Clearing all entries : `clear`
 
-Clears all entries from TaskMasterPro.
-
-Format: `clear`
-
-### Exiting the program : `exit`
-
-Exits the program.
-
-Format: `exit`
 
 --------------------------------------------------------------------------------------------------------------------
 
