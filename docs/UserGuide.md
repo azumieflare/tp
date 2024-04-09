@@ -326,6 +326,7 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 ## Known Issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+2. **For advanced users who choose to manually change the JSON file**, you could change the employee and task id to negative. This could potentially reset the system but there is also a chance that the system will load with the indicated negative ids, the application will function as normal with the negative id. This will be addressed in a future iteration.
 
 --------------------------------------------------------------------------------------------------------------------
 
