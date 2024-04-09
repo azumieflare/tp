@@ -124,6 +124,10 @@ Format: `edit EMPLOYEE_ID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 You can specify `t/` multiple times to add more tags
 </div>
+<br/>
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+When you run this function with `t/` all the existing tags will be removed if not specified again.
+</div>
 
 Examples:
 * `edit 1 n/AikenDueet p/82311231 e/aiken@example.com`
