@@ -542,7 +542,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file or enter the command ```java -jar taskmasterpro.jar```in a command prompt. Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
@@ -551,32 +551,56 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+1. Loading from save file
 
-### Deleting a employee
+   1. If an existing save file exists, taskmasterpro will load from it. In the event an error occurs (invalid data or no save file), it will launch with sample data instead.
+
+### Adding an employee
+
+1. Adding a employee 
+
+    1. Prerequisites: No employees are currently added.
+
+    1. Test case: `add n/Test p/98765432 e/test@gmail.com a/Kent Ridge`<br>
+       Expected: A new employee with the corresponding details is added.
+
+    1. Test case: `add n/Test p/98765432 e/test@gmail.com a/Kent Ridge`<br>
+       Expected: Employee is not added as an employee with the same name already exists. Error details shown in the status message.
+
+    1. Other incorrect delete commands to try: `add`, `add n/`, `...` <br>
+       Expected: An error message will show up on the status message saying which fields are missing. Note that the fields n/, p/, e/ and a/ are necessary to add a new employee.
+
+### Deleting an employee (note that this is similar for tasks)
 
 1. Deleting a employee while all employees are being shown
 
-   1. Prerequisites: List all employees using the `list` command. Multiple employees in the list.
+   1. Prerequisites: List all employees using the `list` command. Multiple employees in the list from employee ID 1 to 5.
 
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: Employee with the ID 1 is deleted from the list. Details of the deleted contact shown in the status message.
 
    1. Test case: `delete 0`<br>
       Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x does not belong to any employee ID)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+### Adding a task 
+
+1. Add a new task
+
+    1. Test case: `task New Task`<br>
+       Expected: A new task with the name "New Task" is added. 
+
+    1. Test case: `task`<br>
+       Expected: Task is not added due to missing task name. Error details shown in the status message. Status bar remains the same.
 
 ### Saving data
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. _In the event there is no save file or corrupted data in the save file, it will launch with sample data instead.
 
-1. _{ more test cases …​ }_
 
 ## **Planned Enhancements**
 

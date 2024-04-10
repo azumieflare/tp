@@ -3,7 +3,17 @@ layout: page
 title: User Guide
 ---
 
-Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop app for managing team members and group tasks**, optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TaskMasterPro can get your contact management tasks done faster than traditional GUI apps. No matter whether you are a manager or a team lead who has to manage a team and keep track of their deliverables, TaskMasterPro can help you! Refer to the table of contents below and click on the section you want to skip to. Refer to the `Quick Start` section to get the program running and the `Features` section on the commands that you can use. If you run into any issues using the program try checking through the `FAQ` or `Known Issues` sections to see if the issues has already been brought up and there are any known solutions.
+Welcome to the user guide for TaskMasterPro. <br>
+
+TaskMasterPro is a desktop app designed for **managing employees and tasks**, optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). <br>
+
+If you can type fast, TaskMasterPro can get your contact management tasks done faster than traditional GUI apps! No matter whether you are a manager or a team lead who has to manage a team and keep track of their deliverables, TaskMasterPro can help you! <br>
+
+Refer to the `Quick Start` section to get the app running and the `Features` section on the commands that are available for use. <br>
+
+If you run into any issues using the program try checking through the `FAQ` or `Known Issues` sections to see if the issues has already been brought up and there are any known solutions. <br>
+
+<div style="page-break-after: always;"></div>
 
 # Table of Contents
 1. [Quick Start](#quick-start)
@@ -32,6 +42,8 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Quick Start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -40,11 +52,11 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TaskMasterPro.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar taskmasterpro.jar` command to run the application.<br>
+1. Open a command terminal, `cd` into the folder you put the jar file in, and run the command `java -jar taskmasterpro.jar` to start the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+1. Type your commands in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
     * `list` : Lists all employees.
@@ -62,6 +74,8 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
 1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -90,6 +104,8 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
 ![id position](images/indicateIdPosition.png)
 ![id position_2](images/indicateIdPosition2.png)
 </div>
+
+<div style="page-break-after: always;"></div>
 
 ### Viewing help : `help`
 
@@ -135,6 +151,8 @@ Examples:
 * `add n/AikenDueet p/82311231 e/aiken@example.com a/Dueet street, block 123, #01-01`
 * `add n/Ben Diddle t/friend e/bendiddle@example.com a/Newgate Prison p/81092109 t/criminal`
 
+<div style="page-break-after: always;"></div>
+
 ### Listing all employees: `list`
 
 Shows a list of all employees in TaskMasterPro.
@@ -172,6 +190,8 @@ Format: `delete EMPLOYEE_ID`
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
 
+<div style="page-break-after: always;"></div>
+
 ### Locating employees by employee names : `find`
 
 Finds employees whose names contain any of the given keyword.
@@ -204,6 +224,8 @@ Avoid naming 2 tasks with the same name as TaskMasterPro will not differentiate 
 Examples:
 * `task Weekly meeting`
 * `task Submitting report`
+
+<div style="page-break-after: always;"></div>
 
 ### Listing all tasks : `listtasks`
 
@@ -238,6 +260,8 @@ Format: `findtasks KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `findtasks report` returns tasks with `report` in their names.
+
+<div style="page-break-after: always;"></div>
 
 ### Assign a task to employee : `assigntask`
 
@@ -274,6 +298,8 @@ Examples:
 * `mark 1`
 * `mark 2`
 
+<div style="page-break-after: always;"></div>
+
 ### Unmark a task : `unmark`
 
 Unmarks a task.
@@ -306,6 +332,12 @@ TaskMasterPro data are saved in the hard disk automatically after any command th
 
 There is no need to save manually.
 
+<div markdown="block" class="alert alert-info">
+Note that saves are only made after running a command, not on app startup!
+</div>
+
+<div style="page-break-after: always;"></div>
+
 ### Editing the data file
 
 TaskMasterPro data are saved automatically as a JSON file [JAR file location]/data/taskmasterpro.json . Advanced users are welcome to update data directly by editing that data file.
@@ -332,6 +364,8 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 2. **For advanced users who choose to manually change the JSON file**, you could change the employee and task id to negative. This could potentially reset the system but there is also a chance that the system will load with the indicated negative ids, the application will function as normal with the negative id. This will be addressed in a future iteration.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Command Summary
 
