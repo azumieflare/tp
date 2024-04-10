@@ -53,7 +53,7 @@ If you run into any issues using the program try checking through the `FAQ` or `
 1. Copy the file to the folder you want to use as the _home folder_ for your TaskMasterPro.
 
 1. Open a command terminal, `cd` into the folder you put the jar file in, and run the command `java -jar taskmasterpro.jar` to start the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
    ![Ui](images/Ui.png)
 
 1. Type your commands in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -114,6 +114,8 @@ Shows a message explaining how to access the help page.
 ![help message](images/helpMessage.png)
 
 Format: `help`
+
+<div style="page-break-after: always;"></div>
 
 ### Adding an employee: `add`
 
@@ -177,6 +179,8 @@ Examples:
 * `edit 1 n/AikenDueet p/82311231 e/aiken@example.com`
 * `edit 2 a/Newgate Prison p/81092109 t/criminal`
 
+<div style="page-break-after: always;"></div>
+
 ### Deleting an employee: `delete`
 
 Deletes the specified employee from TaskMasterPro.
@@ -189,8 +193,6 @@ Format: `delete EMPLOYEE_ID`
 
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
-
-<div style="page-break-after: always;"></div>
 
 ### Locating employees by employee names : `find`
 
@@ -206,6 +208,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `find alex` returns employees with `alex` in their names.
+
+<div style="page-break-after: always;"></div>
 
 ### Adding a task: `task`
 
@@ -225,7 +229,6 @@ Examples:
 * `task Weekly meeting`
 * `task Submitting report`
 
-<div style="page-break-after: always;"></div>
 
 ### Listing all tasks : `listtasks`
 
