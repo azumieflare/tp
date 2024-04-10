@@ -52,8 +52,8 @@ If you run into any issues using the program try checking through the `FAQ` or `
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TaskMasterPro.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and run the command `java -jar taskmasterpro.jar` to start the application.<br>
-   A GUI similar to the below should appear in a few seconds. ![Ui](images/Ui.png)
+1. Open a command terminal, `cd` into the folder you put the jar file in, and run the command `java -jar taskmasterpro.jar` to start the application. A GUI similar to the image below should appear in a few seconds.
+![Ui](images/Ui.png)
 
 1. Type your commands in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -113,8 +113,6 @@ Shows a message explaining how to access the help page.
 ![help message](images/helpMessage.png)
 
 Format: `help`
-
-<div style="page-break-after: always;"></div>
 
 ### Listing all employees: `list`
 
@@ -191,6 +189,8 @@ Format: `delete EMPLOYEE_ID`
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
 
+<div style="page-break-after: always;"></div>
+
 ### Locating employees by employee names : `find`
 
 Finds employees whose names contain any of the given keyword.
@@ -224,6 +224,7 @@ Examples:
 * `task Weekly meeting`
 * `task Submitting report`
 
+<div style="page-break-after: always;"></div>
 
 ### Listing all tasks : `listtasks`
 
@@ -244,6 +245,8 @@ Format: `deletetask TASK_ID`
 Examples:
 * `listtasks` followed by `deletetask 2` deletes the task with id 2 in TaskMasterPro.
 
+<div style="page-break-after: always;"></div>
+
 ### Locating tasks by task names : `findtasks`
 
 Finds tasks whose names contain any of the given keyword.
@@ -259,8 +262,6 @@ Format: `findtasks KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `findtasks report` returns tasks with `report` in their names.
 
-<div style="page-break-after: always;"></div>
-
 ### Assign a task to employee : `assigntask`
 
 Assigns a task object to employee.
@@ -271,6 +272,8 @@ Format: `assigntask TASK_ID EMPLOYEE_ID`
 
 Examples:
 * `assigntask` followed by `2 3` assigns task object with id 2 to an employee with id 3.
+
+<div style="page-break-after: always;"></div>
 
 ### Unassign a task to employee : `unassigntask`
 
@@ -296,8 +299,6 @@ Examples:
 * `mark 1`
 * `mark 2`
 
-<div style="page-break-after: always;"></div>
-
 ### Unmark a task : `unmark`
 
 Unmarks a task.
@@ -311,6 +312,8 @@ Examples:
 * `unmark` followed by a valid integer `TASK_ID` which corresponds to a real task in the database.
 * `unmark 1`
 * `unmark 2`
+
+<div style="page-break-after: always;"></div>
 
 ### Clearing all entries : `clear`
 
@@ -355,6 +358,8 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 **A**: Install the app in the other computer and overwrite the data file it creates with the file that contains the data of your previous TaskMasterPro home folder.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Known Issues
 
