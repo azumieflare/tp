@@ -105,8 +105,6 @@ If you run into any issues using the program try checking through the `FAQ` or `
 ![id position_2](images/indicateIdPosition2.png)
 </div>
 
-<div style="page-break-after: always;"></div>
-
 ### Viewing help : `help`
 
 Shows a message explaining how to access the help page.
