@@ -171,6 +171,7 @@ When you run this function with `t/` all the existing tags will be removed if no
 Examples:
 * `edit 1 n/AikenDueet p/82311231 e/aiken@example.com`
 * `edit 2 a/Newgate Prison p/81092109 t/criminal`
+
 ### Deleting an employee: `delete`
 
 Deletes the specified employee from TaskMasterPro.
@@ -183,6 +184,7 @@ Format: `delete EMPLOYEE_ID`
 
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
+
 ### Locating employees by employee names : `find`
 
 Finds employees whose names contain any of the given keyword.
@@ -197,6 +199,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `find alex` returns employees with `alex` in their names.
+
 ### Adding a task: `task`
 
 Adds a task to TaskMasterPro.
@@ -266,6 +269,7 @@ Examples:
 ![AssignUI](images/AssignUI.png)
 
 <div style="page-break-after: always;"></div>
+
 ### Unassign a task to employee : `unassigntask`
 
 Unassigns a task object from an employee.
@@ -294,6 +298,7 @@ Examples:
 ![MarkUI](images/MarkUI.png)
 
 <div style="page-break-after: always;"></div>
+
 ### Unmark a task : `unmark`
 
 Unmarks a task.
