@@ -348,6 +348,8 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
