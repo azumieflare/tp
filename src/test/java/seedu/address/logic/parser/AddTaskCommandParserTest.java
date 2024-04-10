@@ -20,7 +20,7 @@ import seedu.address.model.task.TaskStatus;
 public class AddTaskCommandParserTest {
     private AddTaskCommandParser parser = new AddTaskCommandParser();
     @Test
-    public void test() throws ParseException, CommandException {
+    public void execute_removeWhiteSpace_success() throws ParseException, CommandException {
         Model m1 = new ModelManager();
         Model m2 = new ModelManager();
         Task.setUniversalTaskId(5);
@@ -33,7 +33,7 @@ public class AddTaskCommandParserTest {
     }
 
     @Test
-    public void test2() {
+    public void execute_errorCommand_exception() {
         try {
             AddTaskCommand atc = parser.parse("");
         } catch (ParseException e) {

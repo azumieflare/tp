@@ -104,10 +104,8 @@ public interface Model {
     void deleteTask(Task target);
 
     /**
-     * Replaces the given employee {@code target} with {@code editedEmployee}.
+     * Replaces the given task {@code target} with {@code editedTask}.
      * {@code target} must exist in the TaskMasterPro.
-     * The employee identity of {@code editedEmployee} must not be the same as
-     * another existing employee in the TaskMasterPro.
      */
     void setTask(Task target, Task editedTask);
 

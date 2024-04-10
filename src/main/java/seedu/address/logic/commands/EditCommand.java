@@ -10,6 +10,7 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EMPLOYEES;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -29,6 +30,7 @@ import seedu.address.model.employee.EmployeeId;
 import seedu.address.model.employee.Name;
 import seedu.address.model.employee.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.task.Task;
 
 /**
  * Edits the details of an existing employee in TaskMasterPro.
@@ -69,20 +71,27 @@ public class EditCommand extends Command {
         this.editEmployeeDescriptor = new EditEmployeeDescriptor(editEmployeeDescriptor);
     }
 
-    @Override
-    public CommandResult execute(Model model) throws CommandException {
-        requireNonNull(model);
+    /**
+     * Method to find if an employee exists based on employee ID.
+     *
+     * @param model the current model
+     * @return the employee if found, else null
+     */
+    public Employee findEmployee(Model model) {
         List<Employee> lastShownList = model.getFilteredEmployeeList();
-
-        Employee employeeToEdit = null;
 
         for (Employee e : lastShownList) {
             if (e.getEmployeeId() == index.getOneBased()) {
-                employeeToEdit = e;
-                break;
+                return e;
             }
         }
+        return null;
+    }
+    @Override
+    public CommandResult execute(Model model) throws CommandException {
+        requireNonNull(model);
 
+        Employee employeeToEdit = findEmployee(model);
         if (employeeToEdit == null) {
             throw new CommandException(Messages.MESSAGE_INVALID_EMPLOYEEID);
         }
@@ -95,7 +104,23 @@ public class EditCommand extends Command {
 
         model.setEmployee(employeeToEdit, editedEmployee);
         model.updateFilteredEmployeeList(PREDICATE_SHOW_ALL_EMPLOYEES);
-        return new CommandResult(String.format(MESSAGE_EDIT_EMPLOYEE_SUCCESS, Messages.format(editedEmployee)));
+
+        //This section will update all the assigned tasks so that each task will refer to the new employee
+        model.updateFilteredTaskList(Model.PREDICATE_SHOW_ALL_TASKS);
+        List<Task> taskList = model.getFilteredTaskList();
+        Hashtable<Integer, Task> assignedTasks = editedEmployee.getTasks().getAssignedTasks();
+        for (Integer key : assignedTasks.keySet()) {
+            for (Task t : taskList) {
+                if (t.getTaskId() == key) {
+                    t.getEmployees().unassignEmployee(editedEmployee.getEmployeeId());
+                    t.getEmployees().assignEmployee(editedEmployee);
+                    break;
+                }
+            }
+        }
+
+        return new CommandResult(String.format(MESSAGE_EDIT_EMPLOYEE_SUCCESS, Messages.format(editedEmployee)),
+                false, true, false, false);
     }
 
     /**

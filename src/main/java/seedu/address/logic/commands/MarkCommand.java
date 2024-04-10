@@ -39,6 +39,7 @@ public class MarkCommand extends Command {
      * @return The result of the command execution.
      * @throws CommandException If there is an error executing the command.
      */
+    //@@author johnyoozhengxian
     @Override
     public CommandResult execute(Model model) throws CommandException {
         List<Task> taskList = model.getFilteredTaskList();
@@ -47,10 +48,10 @@ public class MarkCommand extends Command {
 
         for (Task t : taskList) {
             if (t.getTaskId() == targetIndex) {
-                model.deleteTask(t);
                 taskToMark = t;
                 taskToMark.markTask();
-                model.addTask(taskToMark);
+                model.setTask(t, taskToMark);
+                break;
             }
         }
 
