@@ -52,8 +52,7 @@ If you run into any issues using the program try checking through the `FAQ` or `
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TaskMasterPro.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and run the command `java -jar taskmasterpro.jar` to start the application. A GUI similar to the image below should appear in a few seconds.
-![Ui](images/Ui.png)
+1. Open a command terminal, `cd` into the folder you put the jar file in, and run the command `java -jar taskmasterpro.jar` to start the application. A GUI similar to the image below should appear in a few seconds. <br>
 
 1. Type your commands in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -69,8 +68,10 @@ If you run into any issues using the program try checking through the `FAQ` or `
     * `clear` : Deletes all stored data.
 
     * `exit` : Exits the app.
-
+<br>
 1. Refer to the [Features](#features) below for details of each command.
+
+![Ui](images/Ui.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
