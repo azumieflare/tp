@@ -14,7 +14,6 @@ Refer to the `Quick Start` section to get the app running and the `Features` sec
 If you run into any issues using the program try checking through the `FAQ` or `Known Issues` sections to see if the issues has already been brought up and there are any known solutions. <br>
 
 <div style="page-break-after: always;"></div>
-
 # Table of Contents
 1. [Quick Start](#quick-start)
 2. [Features](#features)
@@ -267,7 +266,9 @@ Format: `assigntask TASK_ID EMPLOYEE_ID`
 * Assigns a task object with id `TASK_ID` to an employee with id `EMPLOYEE_ID`.
 
 Examples:
-* `assigntask` followed by `2 3` assigns task object with id 2 to an employee with id 3.
+* `assigntask` followed by `1 5` assigns task object with id 1 to an employee with id 5, Irfan.
+
+![AssignUI](images/AssignUI.png)
 
 <div style="page-break-after: always;"></div>
 
