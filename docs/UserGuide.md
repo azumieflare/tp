@@ -19,8 +19,8 @@ If you run into any issues using the program try checking through the `FAQ` or `
 1. [Quick Start](#quick-start)
 2. [Features](#features)
    3. [help](#viewing-help--help)
-   4. [add](#adding-an-employee-add)
-   5. [list](#listing-all-employees-list)
+   4. [list](#listing-all-employees-list)
+   5. [add](#adding-an-employee-add)
    6. [edit](#editing-an-employee-edit)
    7. [delete](#deleting-an-employee-delete)
    8. [find](#locating-employees-by-employee-names--find)
@@ -116,6 +116,12 @@ Format: `help`
 
 <div style="page-break-after: always;"></div>
 
+### Listing all employees: `list`
+
+Shows a list of all employees in TaskMasterPro.
+
+Format: `list`
+
 ### Adding an employee: `add`
 
 Adds an employee to TaskMasterPro.
@@ -154,12 +160,6 @@ Examples:
 
 <div style="page-break-after: always;"></div>
 
-### Listing all employees: `list`
-
-Shows a list of all employees in TaskMasterPro.
-
-Format: `list`
-
 ### Editing an employee: `edit`
 
 Edits an employee's details in TaskMasterPro.
@@ -177,8 +177,6 @@ When you run this function with `t/` all the existing tags will be removed if no
 Examples:
 * `edit 1 n/AikenDueet p/82311231 e/aiken@example.com`
 * `edit 2 a/Newgate Prison p/81092109 t/criminal`
-
-<div style="page-break-after: always;"></div>
 
 ### Deleting an employee: `delete`
 
@@ -207,8 +205,6 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `find alex` returns employees with `alex` in their names.
-
-<div style="page-break-after: always;"></div>
 
 ### Adding a task: `task`
 
