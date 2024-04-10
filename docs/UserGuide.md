@@ -265,6 +265,7 @@ Examples:
 
 ![AssignUI](images/AssignUI.png)
 
+<div style="page-break-after: always;"></div>
 ### Unassign a task to employee : `unassigntask`
 
 Unassigns a task object from an employee.
@@ -292,6 +293,7 @@ Examples:
 
 ![MarkUI](images/MarkUI.png)
 
+<div style="page-break-after: always;"></div>
 ### Unmark a task : `unmark`
 
 Unmarks a task.
@@ -303,8 +305,6 @@ Format: `unmark TASK_ID`
 Examples:
 * `unmark` followed by a valid integer `TASK_ID` which corresponds to a real task in the database.
 * `unmark 1`
-
-<div style="page-break-after: always;"></div>
 
 ### Clearing all entries : `clear`
 
@@ -318,6 +318,7 @@ Exits the program.
 
 Format: `exit`
 
+<div style="page-break-after: always;"></div>
 ### Saving the data
 
 TaskMasterPro data are saved in the hard disk automatically after any command that changes the data.
@@ -327,8 +328,6 @@ There is no need to save manually.
 <div markdown="block" class="alert alert-info">
 Note that saves are only made after running a command, not on app startup!
 </div>
-
-<div style="page-break-after: always;"></div>
 
 ### Editing the data file
 
@@ -343,14 +342,13 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the data file it creates with the file that contains the data of your previous TaskMasterPro home folder.
 
 --------------------------------------------------------------------------------------------------------------------
-
-<div style="page-break-after: always;"></div>
 
 ## Known Issues
 
