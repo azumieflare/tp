@@ -257,6 +257,8 @@ Format: `findtasks KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `findtasks report` returns tasks with `report` in their names.
 
+<div style="page-break-after: always;"></div>
+
 ### Assign a task to employee : `assigntask`
 
 Assigns a task object to employee.
@@ -270,8 +272,6 @@ Examples:
 
 ![AssignUI](images/AssignUI.png)
 
-<div style="page-break-after: always;"></div>
-
 ### Unassign a task to employee : `unassigntask`
 
 Unassigns a task object from an employee.
@@ -281,7 +281,9 @@ Format: `unassigntask TASK_ID EMPLOYEE_ID`
 * Unassigns a task object with id `TASK_ID` from an employee with id `EMPLOYEE_ID`.
 
 Examples:
-* `unassigntask` followed by `2 3` unassigns task object with id 2 from an employee with id 3.
+* `unassigntask` followed by `1 5` unassigns task object with id 1 from an employee with id 5.
+
+<div style="page-break-after: always;"></div>
 
 ### Mark a task : `mark`
 
@@ -289,14 +291,13 @@ Marks a task as done.
 
 Format: `mark TASK_ID`
 
-* Marks a specified task with id `TASK_ID`.
+* Marks a specified task with id `TASK_ID`. The task will be labeled as "Completed".
 
 Examples:
 * `mark` followed by a valid integer `TASK_ID` which corresponds to a real task in the database.
 * `mark 1`
-* `mark 2`
 
-<div style="page-break-after: always;"></div>
+![MarkUI](images/MarkUI.png)
 
 ### Unmark a task : `unmark`
 
@@ -304,8 +305,7 @@ Unmarks a task.
 
 Format: `unmark TASK_ID`
 
-* Unmarks a specified task with id `TASK_ID`.
-* task to be unmarked should be marked as done before.
+* Unmarks a specified task with id `TASK_ID`. The task will be labeled as "In Progress".
 
 Examples:
 * `unmark` followed by a valid integer `TASK_ID` which corresponds to a real task in the database.
