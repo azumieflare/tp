@@ -577,3 +577,16 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+## **Planned Enhancements**
+
+Given below is the list of our planned enhancements. Our team size is 4, allowing us to have 8 enhancements in total.
+
+1. Users will **not** be allowed to manually set the employee and task id to negative in the JSON file.
+2. To increase efficiency, the UI will be split into **2 separate windows**, one for employees and one for tasks.
+3. After marking a task that has been assigned to employees, there will be **indications** to show that the task has been completed under the employee's list of tasks.
+   1. For example: `4: pe-dry-run (Completed)`.
+4. **More constraints** will be added to the email field to forbid dubious email domains.
+   1. For example, the email domain `testingthetopleveldomaincom` will be forbidden.
+5. The current error message for assigning/unassigning task `The Task ID provided is invalid` is too general. This will be changed
+     to mention why exactly the command failed. For example: `Unassign task failed. The employee does not have the given task ID`.

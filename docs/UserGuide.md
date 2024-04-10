@@ -52,7 +52,7 @@ Hi! Welcome to the user guide for TaskMasterPro. TaskMasterPro is a **desktop ap
     * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds an employee named `John Doe` to TaskMasterPro.
 
     * `delete 3` : Deletes the employee with employee ID = 3.
- 
+
     * `task meeting` : Creates a task with description called meeting.
 
     * `clear` : Deletes all stored data.
@@ -114,9 +114,9 @@ PHONE_NUMBER : Should be an 8 digit number beginning with either 6, 8 or 9
 
 EMAIL : Should be of the format local-part@domain and adhere to the following constraints,
 
-1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. 
+1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters.
 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods.
-   
+
    The domain name must:
    * end with a domain label at least 2 characters long
    * have each domain label start and end with alphanumeric characters
@@ -346,8 +346,8 @@ Action | Format, Examples
 **List tasks** | `listtasks`
 **Delete task** | `deletetask TASK_ID`<br> e.g., `deletetask 3`
 **Find tasks** | `findtasks KEYWORD [MORE_KEYWORDS]`<br> e.g., `findtasks report`
-**Mark task** | `mark TASK_ID`<br> e.g., `mark 1` 
-**Unmark task** | `unmark TASK_ID`<br> e.g., `unmark 1` 
+**Mark task** | `mark TASK_ID`<br> e.g., `mark 1`
+**Unmark task** | `unmark TASK_ID`<br> e.g., `unmark 1`
 **Assign task to an employee** | `assigntask TASK_ID EMPLOYEE_ID` <br> e.g., `assigntask 1 2`
 **Unassign employee from a task** | `unassigntask TASK_ID EMPLOYEE_ID` <br> e.g., `unassigntask 1 1`
 **Clear** | `clear`
