@@ -110,7 +110,7 @@ Make sure that your parameter's formats are valid!
 
 NAME : Only alphanumeric characters and spaces
 
-PHONE_NUMBER : Should be an 8 digit number beginning with either 6, 8 or 9
+PHONE_NUMBER : An 8 digit number beginning with either 6, 8 or 9
 
 EMAIL : Should be of the format local-part@domain and adhere to the following constraints,
 
@@ -165,8 +165,9 @@ Deletes the specified employee from TaskMasterPro.
 
 Format: `delete EMPLOYEE_ID`
 
-* The `EMPLOYEE_ID` refers to the index number shown in the displayed employee list.
-  Make sure that its valid!
+* Deletes the employee with the specified `EMPLOYEE_ID`.
+* The employee id refers to the number shown in the displayed employee list.
+* The id **should be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
@@ -218,7 +219,7 @@ Format: `deletetask TASK_ID`
 
 * Deletes the task with the specified `TASK_ID`.
 * The task id refers to the number shown in the displayed task list.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The id **should be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `listtasks` followed by `deletetask 2` deletes the task with id 2 in TaskMasterPro.
