@@ -120,6 +120,8 @@ Shows a list of all employees in TaskMasterPro.
 
 Format: `list`
 
+<div style="page-break-after: always;"></div>
+
 ### Adding an employee: `add`
 
 Adds an employee to TaskMasterPro.
@@ -189,8 +191,6 @@ Format: `delete EMPLOYEE_ID`
 Examples:
 * `list` followed by `delete 3` deletes the employee with id 3 in TaskMasterPro.
 
-<div style="page-break-after: always;"></div>
-
 ### Locating employees by employee names : `find`
 
 Finds employees whose names contain any of the given keyword.
@@ -215,7 +215,6 @@ Format: `task TASK_DESCRIPTION`
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The description for the task is required and can be any length with spaces in between
 </div>
-<br/>
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 Avoid naming 2 tasks with the same name as TaskMasterPro will not differentiate them! It could make things complicated!
 </div>
@@ -223,8 +222,6 @@ Avoid naming 2 tasks with the same name as TaskMasterPro will not differentiate 
 Examples:
 * `task Weekly meeting`
 * `task Submitting report`
-
-<div style="page-break-after: always;"></div>
 
 ### Listing all tasks : `listtasks`
 
@@ -299,6 +296,8 @@ Examples:
 * `mark 1`
 * `mark 2`
 
+<div style="page-break-after: always;"></div>
+
 ### Unmark a task : `unmark`
 
 Unmarks a task.
@@ -313,8 +312,6 @@ Examples:
 * `unmark 1`
 * `unmark 2`
 
-<div style="page-break-after: always;"></div>
-
 ### Clearing all entries : `clear`
 
 Clears all entries from TaskMasterPro.
@@ -327,6 +324,8 @@ Exits the program.
 
 Format: `exit`
 
+<div style="page-break-after: always;"></div>
+
 ### Saving the data
 
 TaskMasterPro data are saved in the hard disk automatically after any command that changes the data.
@@ -336,8 +335,6 @@ There is no need to save manually.
 <div markdown="block" class="alert alert-info">
 Note that saves are only made after running a command, not on app startup!
 </div>
-
-<div style="page-break-after: always;"></div>
 
 ### Editing the data file
 
@@ -358,8 +355,6 @@ Furthermore, certain edits can cause TaskMasterPro to behave in unexpected ways 
 **A**: Install the app in the other computer and overwrite the data file it creates with the file that contains the data of your previous TaskMasterPro home folder.
 
 --------------------------------------------------------------------------------------------------------------------
-
-<div style="page-break-after: always;"></div>
 
 ## Known Issues
 
