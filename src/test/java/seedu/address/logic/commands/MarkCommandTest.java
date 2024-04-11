@@ -15,7 +15,7 @@ import seedu.address.model.task.TaskStatus;
 
 public class MarkCommandTest {
     @Test
-    public void test() throws CommandException {
+    public void execute_markCommand_success() throws CommandException {
         Task validTask = new Task(new TaskName("Test"), new TaskId(123), new TaskStatus(false),
                 new AssignedEmployees(""));
         Model model = new ModelManager();
