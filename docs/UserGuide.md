@@ -130,8 +130,7 @@ NAME : Only alphanumeric characters and spaces<br/>
 
 PHONE_NUMBER : An 8 digit number beginning with either 6, 8 or 9<br/>
 
-EMAIL : Should be of the format local-part@domain and adhere to the following constraints,<br/>
-
+EMAIL : Should be of the format local-part@domain and, <br/>
 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters.<br/>
 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods.<br/>
 
@@ -139,7 +138,6 @@ EMAIL : Should be of the format local-part@domain and adhere to the following co
    * end with a domain label at least 2 characters long<br/>
    * have each domain label start and end with alphanumeric characters
 </div>
-<br/>
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 
 As of now you cannot create multiple employees with the same name.
