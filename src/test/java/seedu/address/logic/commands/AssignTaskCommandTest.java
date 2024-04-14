@@ -17,7 +17,7 @@ import seedu.address.testutil.EmployeeBuilder;
 
 public class AssignTaskCommandTest {
     @Test
-    public void test() throws CommandException {
+    public void execute_assignTaskCommand_success() throws CommandException {
         Employee validEmployee = new EmployeeBuilder().build();
         Task task = new Task(new TaskName("play game"), new TaskId(5), new TaskStatus(false),
                 new AssignedEmployees(""));
