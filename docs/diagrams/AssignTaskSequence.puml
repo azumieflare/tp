@@ -20,11 +20,15 @@ activate TaskMasterProParser
 
 create AssignTaskParser
 TaskMasterProParser -> AssignTaskParser
+activate AssignTaskParser
 
 create AssignTaskCommand
 AssignTaskParser -> AssignTaskCommand
+activate AssignTaskCommand
 AssignTaskCommand --> AssignTaskParser : a
+deactivate AssignTaskCommand
 AssignTaskParser --> TaskMasterProParser : a
+deactivate AssignTaskParser
 TaskMasterProParser --> LogicManager : a
 deactivate TaskMasterProParser
 
