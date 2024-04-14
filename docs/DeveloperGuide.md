@@ -372,9 +372,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *` | user                                       | save current data                            | keep track of all data even after exiting                         |
 | `* * *` | user                                       | load saved data                              | use the data that was saved previously                            |
 | `* * `  | user                                       | find tasks by name                           | quickly locate specific tasks that I remember                     |
-| `*`     | user with many employees in the TaskMasterPro | sort employees by name                       | locate a employee easily                                          |
+| `* * `  | user                                       | find employees by name                        | locate an employee easily                                         |
 
-*{More to be added for v1.3}*
+*{More to be added in the future}*
 
 ### Use cases
 
@@ -542,7 +542,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file or enter the command ```java -jar taskmasterpro.jar```in a command prompt. Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
@@ -551,29 +551,69 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+1. Loading from save file
 
-### Deleting a employee
+   1. If an existing save file exists, taskmasterpro will load from it. In the event an error occurs (invalid data or no save file), it will launch with sample data instead.
+
+### Adding an employee
+
+1. Adding a employee 
+
+    1. Prerequisites: No employees are currently added.
+
+    1. Test case: `add n/Test p/98765432 e/test@gmail.com a/Kent Ridge`<br>
+       Expected: A new employee with the corresponding details is added.
+
+    1. Test case: `add n/Test p/98765432 e/test@gmail.com a/Kent Ridge`<br>
+       Expected: Employee is not added as an employee with the same name already exists. Error details shown in the status message.
+
+    1. Other incorrect delete commands to try: `add`, `add n/`, `...` <br>
+       Expected: An error message will show up on the status message saying which fields are missing. Note that the fields n/, p/, e/ and a/ are necessary to add a new employee.
+
+### Deleting an employee (note that this is similar for tasks)
 
 1. Deleting a employee while all employees are being shown
 
-   1. Prerequisites: List all employees using the `list` command. Multiple employees in the list.
+   1. Prerequisites: List all employees using the `list` command. Multiple employees in the list from employee ID 1 to 5.
 
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: Employee with the ID 1 is deleted from the list. Details of the deleted contact shown in the status message.
 
    1. Test case: `delete 0`<br>
       Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x does not belong to any employee ID)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+### Adding a task 
+
+1. Add a new task
+
+    1. Test case: `task New Task`<br>
+       Expected: A new task with the name "New Task" is added. 
+
+    1. Test case: `task`<br>
+       Expected: Task is not added due to missing task name. Error details shown in the status message. Status bar remains the same.
 
 ### Saving data
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. _In the event there is no save file or corrupted data in the save file, it will launch with sample data instead.
 
-1. _{ more test cases …​ }_
+
+## **Planned Enhancements**
+
+Given below is the list of our planned enhancements. Our team size is 4, allowing us to have 8 enhancements in total.
+
+1. **Add validity checking for manual editing of ID**: The current implementation allows ID to be manually set to negative values in the JSON file. While this does not break other commands, this should not be allowed and will be fixed in a future iteration.
+2. **Commands can be difficult to use due to inability to see both employees and tasks at the same time**: The current implementation only allows for 1 view at once. To increase efficiency, the UI will be split into **2 separate windows**, one for employees and one for tasks.
+3. **Marking a task as done could be more meaningful**: After marking a task that has been assigned to employees, there should be **indications** to show that the task has been completed under the employee's list of tasks.
+   1. For example: `4: pe-dry-run (Completed)`.
+4. **Email domains currently accept dubious values**: More **constraints** will be added to the email field to forbid dubious email domains.
+   1. For example, the email domain `testingthetopleveldomaincom` will be forbidden.
+5. **Certain error messages could be more specific**: The current error message for assigning/unassigning task `The Task ID provided is invalid` is too general. This will be changed
+     to mention why exactly the command failed. For example: `Unassign task failed. The employee does not have the given task ID`.
+6. **Same name employees should be allowed to be added**: While it is feasible for multiple different employees to have the same name, the current implementation does not allow same name employees to be added. This will be changed in a future enhancement.
+7. **The format for assigntask and unassigntask can be confusing**: The current format for both the commands are ```command taskid employeeid```. This can be confusing as both taskid and employeeid refer to integers and can be easily mixed up. The use of prefixes will be added in the future to differentiate between the two different IDs.
+8. **ID of deleted employees or tasks are not reused**: While it is unlikely that the number of employees or tasks hit the integer limit, a future enhancement will account for this possibility and reuse unused IDs should the number reach close to the limit.
