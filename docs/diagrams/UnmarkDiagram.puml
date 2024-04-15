@@ -52,7 +52,7 @@ activate UnmarkCommand
 
 'Put this into a ref block'
 
-group ref [update existing Employee fields]
+group ref [unmark Task as not done]
 UnmarkCommand -[hidden]-> Model
 end
 
